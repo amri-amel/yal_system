@@ -1,0 +1,61 @@
+<form [formGroup]="registerForm" novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Creer Utilistateur</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Nom Utilisateur" formControlName="username">
+            <mat-error *ngIf="registerForm.controls['username'].hasError('required')">
+              Nom utilisateur est <strong>obligatoire</strong>
+            </mat-error>
+            <mat-icon matPrefix class="px-6">person</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="email" formControlName="email">
+            <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
+              Email est <strong>obligatoire</strong>
+            </mat-error>
+            <mat-error *ngIf="registerForm.value.email.invalid || registerForm.hasError">
+              {{getErrorMessage()}}
+            </mat-error>
+            <mat-icon matPrefix class="px-6">email</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput 
+                   placeholder="Mot de Passe" 
+                   formControlName="password"
+                   [type]="hide ? 'text' : 'password' "
+                   required
+                   >
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+              Mot de passe est <strong>obligatoire</strong>
+            </mat-error>
+            <mat-icon matPrefix class="px-6">lock</mat-icon>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility': 'visibility_off'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button 
+              color="accent" 
+              [disabled]="!registerForm.valid" 
+              (click)="onSubmit()">Enregistrer</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
