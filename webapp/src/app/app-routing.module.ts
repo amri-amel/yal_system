@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuestWrapComponent } from './frontoffice/layers/guest-wrap/guest-wrap.component';
 import { LoginFormComponent } from './shared/user/login-form/login-form.component';
 import { RegisterFormComponent } from './shared/user/register-form/register-form.component';
 
 const routes: Routes = [
   {
-    path:'login', component:LoginFormComponent
+    path:'signup',component:RegisterFormComponent
   },
   {
-    path:'signup',component:RegisterFormComponent
+    path:'login',component:LoginFormComponent
   },
   {
     path: 'front',
