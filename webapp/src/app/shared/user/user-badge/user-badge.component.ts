@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -9,9 +10,14 @@ import { AuthenticationService } from '../authentication.service';
 export class UserBadgeComponent implements OnInit {
    @Input() currentUser:any;
 
-  constructor() { }
+  constructor(private authService:AuthenticationService, private route:Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.authService.logout();
+    this.route.navigate(['/home'])
   }
 
 }
