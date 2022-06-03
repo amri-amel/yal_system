@@ -5,17 +5,20 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserBadgeComponent } from './user-badge/user-badge.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
-  declarations: [RegisterFormComponent, LoginFormComponent],
+  declarations: [RegisterFormComponent, LoginFormComponent, UserBadgeComponent],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
-  exports:[RegisterFormComponent, LoginFormComponent]
+  exports:[RegisterFormComponent, LoginFormComponent,UserBadgeComponent]
 })
 export class UserModule { }
