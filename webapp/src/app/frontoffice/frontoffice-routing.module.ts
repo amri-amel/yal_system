@@ -6,6 +6,7 @@ import { ContactPageComponent } from './layers/contact-page/contact-page.compone
 import { CoursesPageComponent } from './layers/courses-page/courses-page.component';
 import { GuestWrapComponent } from './layers/guest-wrap/guest-wrap.component';
 import { LandpageComponent } from './layers/landpage/landpage.component';
+import { TrainingsessionPageComponent } from './layers/trainingsession-page/trainingsession-page.component';
 
 const routes: Routes = [
   {
@@ -16,8 +17,8 @@ const routes: Routes = [
         component: LandpageComponent
       },
       {
-        path: 'courses',
-        component: CoursesPageComponent,
+        path: 'training-session',
+        component: TrainingsessionPageComponent,
 
       },
       {

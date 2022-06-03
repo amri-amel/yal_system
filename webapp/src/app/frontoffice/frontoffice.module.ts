@@ -11,6 +11,7 @@ import { AboutusPageComponent } from './layers/aboutus-page/aboutus-page.compone
 import { ContactPageComponent } from './layers/contact-page/contact-page.component';
 import { CertificationPageComponent } from './layers/certification-page/certification-page.component';
 import { LandpageComponent } from './layers/landpage/landpage.component';
+import { UserModule } from '../shared/user/user.module';
 
 
 
@@ -29,7 +30,8 @@ import { LandpageComponent } from './layers/landpage/landpage.component';
   ],
   imports: [
     CommonModule,
-    FrontofficeRoutingModule
+    FrontofficeRoutingModule,
+    UserModule
   ]
 })
 export class FrontofficeModule { }
