@@ -17,14 +17,14 @@ const routes: Routes = [
     // canActivate:[AuthGuard],
     // canActivateChild:[AuthGuard]
   },
-  // {
-  //   path: 'back',
-  //   loadChildren: () => import('./back-office/back-office.module').then(m => m.BackOfficeModule),
+   {
+     path: 'admin',
+     loadChildren: () => import('./backoffice/backoffice.module').then(m => m.BackofficeModule),
   //   canLoad:[AuthGuard,AdminGuard],
   //   canActivate:[AuthGuard,AdminGuard],
   //   canActivateChild:[AuthGuard,AdminGuard]
-  // }
-  // , 
+   }
+   , 
   {
     path: '**',
     redirectTo: 'front',
