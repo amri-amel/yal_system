@@ -7,11 +7,14 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserBadgeComponent } from './user-badge/user-badge.component';
 import { RouterModule } from '@angular/router';
+import { AdminUserBadgeComponent } from './admin-user-badge/admin-user-badge.component';
 
 
 
 @NgModule({
-  declarations: [RegisterFormComponent, LoginFormComponent, UserBadgeComponent],
+  declarations: [RegisterFormComponent, 
+    LoginFormComponent, 
+    UserBadgeComponent, AdminUserBadgeComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -19,6 +22,10 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule
   ],
-  exports:[RegisterFormComponent, LoginFormComponent,UserBadgeComponent]
+  exports:[RegisterFormComponent, 
+    LoginFormComponent,
+    UserBadgeComponent,
+    AdminUserBadgeComponent
+  ]
 })
 export class UserModule { }
