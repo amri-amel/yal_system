@@ -3,6 +3,7 @@ import user from './user'
 import auth from './auth'
 import passwordReset from './password-reset'
 import formation from './formation'
+import course from './course'
 
 const router = new Router()
 
@@ -33,5 +34,6 @@ router.use('/users', user)
 router.use('/auth', auth)
 router.use('/password-resets', passwordReset)
 router.use('/formations', formation)
+router.use('/courses', course)
 
 export default router

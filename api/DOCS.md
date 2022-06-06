@@ -8,6 +8,13 @@
 	- [Authenticate with Github](#authenticate-with-github)
 	- [Authenticate with Google](#authenticate-with-google)
 	
+- [Course](#course)
+	- [Create course](#create-course)
+	- [Delete course](#delete-course)
+	- [Retrieve course](#retrieve-course)
+	- [Retrieve courses](#retrieve-courses)
+	- [Update course](#update-course)
+	
 - [Formation](#formation)
 	- [Create formation](#create-formation)
 	- [Delete formation](#delete-formation)
@@ -89,6 +96,83 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Google user accessToken.</p>							|
+
+# Course
+
+## Create course
+
+
+
+	POST /courses
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| title			| 			|  <p>Course's title.</p>							|
+| description			| 			|  <p>Course's description.</p>							|
+| cover			| 			|  <p>Course's cover.</p>							|
+| author			| 			|  <p>Course's author.</p>							|
+| isFeatured			| 			|  <p>Course's isFeatured.</p>							|
+| category			| 			|  <p>Course's category.</p>							|
+
+## Delete course
+
+
+
+	DELETE /courses/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+
+## Retrieve course
+
+
+
+	GET /courses/:id
+
+
+## Retrieve courses
+
+
+
+	GET /courses
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update course
+
+
+
+	PUT /courses/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| title			| 			|  <p>Course's title.</p>							|
+| description			| 			|  <p>Course's description.</p>							|
+| cover			| 			|  <p>Course's cover.</p>							|
+| author			| 			|  <p>Course's author.</p>							|
+| isFeatured			| 			|  <p>Course's isFeatured.</p>							|
+| category			| 			|  <p>Course's category.</p>							|
 
 # Formation
 
