@@ -9,6 +9,10 @@ import { AdminCoursesPageComponent } from './layers/admin-courses-page/admin-cou
 import { AdminTrainingPageComponent } from './layers/admin-training-page/admin-training-page.component';
 import { AdminUsersPageComponent } from './layers/admin-users-page/admin-users-page.component';
 import { AdminCoachesPageComponent } from './layers/admin-coaches-page/admin-coaches-page.component';
+import { UserModule } from '../shared/user/user.module';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { AdminCoachesPageComponent } from './layers/admin-coaches-page/admin-coa
   ],
   imports: [
     CommonModule,
-    BackofficeRoutingModule
+    BackofficeRoutingModule,
+    UserModule,
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class BackofficeModule { }

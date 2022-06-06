@@ -12,6 +12,11 @@ const routes: Routes = [
     component:AdminLandpageComponent,
     children:[
       {
+        path:'',
+        component:AdminCoursesPageComponent
+
+      },
+      {
         path:'courses',
         component: AdminCoursesPageComponent,
         children:[
@@ -28,6 +33,11 @@ const routes: Routes = [
             component: UpdateCourseFormComponent
           }
         ]
+      },
+      {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
       },
 
     ]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/shared/user/authentication.service';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminNavbarComponent implements OnInit {
 
-  constructor() { }
+  public currentUser:any
+  constructor(private authService:AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authService.currentUser.subscribe(value=>{
+      this.currentUser=value
+    });
   }
-
 }
