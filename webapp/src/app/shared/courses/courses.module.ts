@@ -20,10 +20,10 @@ import { CoursesListComponent } from './courses-list/courses-list.component';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   exports:[
     AddCourseComponent,

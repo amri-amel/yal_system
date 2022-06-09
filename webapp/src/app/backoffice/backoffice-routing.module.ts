@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCourseComponent } from '../shared/courses/add-course/add-course.component';
+import { CoursesListComponent } from '../shared/courses/courses-list/courses-list.component';
 import { AdminCoursesPageComponent } from './layers/admin-courses-page/admin-courses-page.component';
 import { AdminLandpageComponent } from './layers/admin-landpage/admin-landpage.component';
-import { CourcesListComponent } from '../shared/courses/courses-list/courses-list.component';
-import { AddCourceComponent, AddCourseComponent } from '../shared/courses/add-course/add-course.component';
-import { UpdateCourceComponent } from '../shared/courses/update-course/update-course.component';
+import { UpdateCourseComponent } from '../shared/courses/update-course/update-course.component';
+
+
 
 const routes: Routes = [
   {
@@ -22,7 +24,7 @@ const routes: Routes = [
         children:[
           {
             path:'',
-            component:CourcesListComponent
+            component:CoursesListComponent
           },
           {
             path:'add',
@@ -30,7 +32,7 @@ const routes: Routes = [
           },
           {
             path:'update/:id',
-            component: UpdateCourceComponent
+            component: UpdateCourseComponent
           }
         ]
       },
@@ -51,4 +53,3 @@ const routes: Routes = [
 export class BackofficeRoutingModule { }
 
 
-//TODO: to fix admin routing and navigation
