@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -8,7 +8,7 @@ import { CoursesService } from '../courses.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { debounceTime, distinctUntilChanged, merge, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, merge, tap,fromEvent } from 'rxjs';
 import { ConfirmationDialogComponent } from '../../confirmation-dialog/confirmation-dialog.component';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.scss']
 })
-export class CoursesListComponent implements OnInit {
+export class CoursesListComponent implements OnInit,AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<ICourse>;
@@ -100,7 +100,7 @@ export class CoursesListComponent implements OnInit {
   getFullUrlPhoto(photoHrl:string):string{
     return photoHrl ?
     `${environment.API_URL}/${photoHrl}`:
-    'assets/default.png';
+    'assets/defaultCourse.png';
   }
 
 }
