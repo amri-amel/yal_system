@@ -44,7 +44,7 @@ export class RegisterFormComponent {
       .subscribe(
         {
           next:data => {
-          this.snackBar.open("Utilisateur a été ajouté avec succés", 'Close')
+          this.snackBar.open("welcome !!!you have been registered successfully ", 'Close')
         },
         error: error => {
           this.snackBar.open("Echec :( ", 'Close')
