@@ -5,6 +5,7 @@ import { CoursesListComponent } from '../shared/courses/courses-list/courses-lis
 import { AdminCoursesPageComponent } from './layers/admin-courses-page/admin-courses-page.component';
 import { AdminLandpageComponent } from './layers/admin-landpage/admin-landpage.component';
 import { UpdateCourseComponent } from '../shared/courses/update-course/update-course.component';
+import { CourseResolver } from '../shared/courses/course.resolver';
 
 
 
@@ -32,7 +33,10 @@ const routes: Routes = [
           },
           {
             path:'update/:id',
-            component: UpdateCourseComponent
+            component: UpdateCourseComponent,
+            resolve:{
+              course:CourseResolver
+            }
           }
         ]
       },

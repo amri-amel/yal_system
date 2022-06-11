@@ -1,1 +1,92 @@
-<p>update-cource works!</p>
+<section class="h-full bg-gray-200 gradient-form md:h-screen">
+    <div class="container h-full px-6 py-12">
+        <div class="flex flex-wrap items-center justify-center h-full text-gray-800 g-6">
+            <div class="xl:w-10/12">
+                <div class="block bg-white rounded-lg shadow-lg">
+                    <div class="lg:flex lg:flex-wrap g-0">
+                        <form [formGroup]="courseForm" novalidate>
+                            <mat-card class="course-card">
+                                <mat-card-header>
+                                    <mat-card-title>Update Course</mat-card-title>
+                                </mat-card-header>
+                                <mat-card-content>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Title" formControlName="title">
+                                                <mat-error *ngIf="courseForm.controls['title'].hasError('required')">
+                                                    Course's Title <strong>is required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Description" formControlName="description">
+                                                <mat-error
+                                                    *ngIf="courseForm.controls['description'].hasError('required')">
+                                                    Course's description <strong>is required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <mat-form-field class="full-width">
+                                                <input matInput placeholder="Author" formControlName="author">
+                                                <mat-error *ngIf="courseForm.controls['author'].hasError('required')">
+                                                    Course's author <strong>is required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <mat-form-field class="full-width">
+                                                <mat-label>Category</mat-label>
+                                                <mat-select formControlName="category">
+                                                    <mat-option *ngFor="let category of courseCategory"
+                                                        [value]="category.value"
+                                                        selected="category.value === ngSelect">
+                                                        {{category.viewValue}}
+                                                    </mat-option>
+                                                </mat-select>
+                                                <mat-error *ngIf="courseForm.controls['category'].hasError('required')">
+                                                    course's Category<strong>is required</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <!--   
+                    <app-upload-dress [dressId]="currentDressId" (uploadPictureEvent)="refresh($event)">
+                    </app-upload-dress> -->
+
+                                </mat-card-content>
+                                <mat-card-actions class="flex flex-row w-full ">
+                                    <button mat-raised-button [routerLink]="['/front/dress']">Annulé</button>
+                                    <button mat-raised-button color="primary" (click)="onSubmit()">Enregistrer</button>
+                                </mat-card-actions>
+                            </mat-card>
+                        </form>
+                        <!--  End of form-->
+
+
+                        <div class="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none" style="
+                  background: linear-gradient(to right);
+                ">
+                            <div class="px-4 py-6 md:p-12 md:mx-6">
+                                <img [src]="getPhotoUrl(currentPhotoUrl)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
