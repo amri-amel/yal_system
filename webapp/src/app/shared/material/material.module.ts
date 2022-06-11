@@ -59,7 +59,7 @@ const material = [
   MatNativeDateModule,
   MatToolbarModule,     
   MatDialogModule,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-  MatProgressBarModule
+  MatProgressBarModule,
 ]
 
 
