@@ -8,7 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
-
+import { UploadCourseCoverComponent } from './upload-course-cover/upload-course-cover.component';
+import { NgxUploaderModule } from 'ngx-uploader';
 
 
 
@@ -16,19 +17,22 @@ import { CoursesListComponent } from './courses-list/courses-list.component';
   declarations: [
     AddCourseComponent,
     UpdateCourseComponent,
-    CoursesListComponent
+    CoursesListComponent,
+    UploadCourseCoverComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    NgxUploaderModule
   ],
   exports:[
     AddCourseComponent,
     UpdateCourseComponent,
-    CoursesListComponent
+    CoursesListComponent,
+    UploadCourseCoverComponent
   ]
 })
 export class CoursesModule { }
