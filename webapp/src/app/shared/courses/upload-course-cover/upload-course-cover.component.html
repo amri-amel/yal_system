@@ -1,0 +1,9 @@
+<label class="upload-button">
+    <button mat-button color="primary">Téléchargez une Photo de Robe</button>
+    <input 
+        type="file" ngFileSelect [options]="options" 
+        (uploadOutput)="onUploadOutput($event)" 
+        [uploadInput]="uploadInput"
+        single
+    >
+</label>

@@ -88,7 +88,7 @@ export class UpdateCourseComponent implements OnInit {
                 ? './assets/defaultCourse.png' 
                 : `${environment.API_URL}/${url}`;
   }
-  refresh(event: Event) {
+  refresh(event: any) {
     console.log(`%c Refresh()`, 'background-color:green;color:white');
   }
   getFullUrlPhoto(photoHrl:string):string{
@@ -96,5 +96,6 @@ export class UpdateCourseComponent implements OnInit {
     `${environment.API_URL}/${photoHrl}`:
     'assets/defaultCourse.png';
   }
+
 
 }

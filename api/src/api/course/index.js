@@ -90,7 +90,7 @@ router.put('/:id',
  * @apiError 401 master access only.
  */
  router.put('/cover/:id',
- master(),
+ //master(),
  uploadCourseCover)
 
 

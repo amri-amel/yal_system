@@ -68,7 +68,8 @@
                                     </mat-form-field>
                                 </div>
                             </div>
-                   
+                            <app-upload-course-cover [courseId]="currentCourseId" (uploadPictureEvent)="refresh($event)">
+                            </app-upload-course-cover>
                     
                 </mat-card-content>
                         <mat-card-actions class="flex flex-row w-full ">
