@@ -11,18 +11,17 @@ import { CoachService } from '../coach.service';
 })
 export class AddCoachComponent implements OnInit {
 
-  public userRole: {value:string, viewValue:string}[] = [
-    { value: 'user', viewValue: 'user' },
-    { value: 'Admin', viewValue: 'Admin' },
-    { value: 'Coach', viewValue: 'Coach' },
-    { value: 'Student', viewValue: 'Student' },
 
-  ];
 
   coachForm = this.fb.group({
-    Name: [null, Validators.required],
-    Email: [null, Validators.required],
-    Role: [null, Validators.required]
+    fullName: [null, Validators.required],
+    email: [null, Validators.required],
+    speciality: [null, Validators.required],
+    phone: [null, Validators.required],
+    address: [null, Validators.required],
+    city: [null, Validators.required],
+    country: [null, Validators.required],
+    observations: [null, Validators.required]
    
   });
 

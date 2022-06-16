@@ -1,8 +1,10 @@
 export interface ICoach{
-    
-    id?: string,
-    Name: string,
-    Email:string,
-    Role?:string,
-  
+    fullName: string;
+    email: string;
+    speciality: string;
+    phone:string;
+    address: string;
+    city: string;
+    country: string;
+    observations: string;
 }
