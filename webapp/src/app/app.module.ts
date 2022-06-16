@@ -11,10 +11,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { NgxUploaderModule } from 'ngx-uploader';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+   
+   
+   
+  
   ],
   imports: [
     BrowserModule,

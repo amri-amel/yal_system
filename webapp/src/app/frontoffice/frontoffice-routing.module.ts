@@ -5,6 +5,7 @@ import { CertificationPageComponent } from './layers/certification-page/certific
 import { ContactPageComponent } from './layers/contact-page/contact-page.component';
 import { CoursesPageComponent } from './layers/courses-page/courses-page.component';
 import { GuestWrapComponent } from './layers/guest-wrap/guest-wrap.component';
+import { HomePageComponent } from './layers/home-page/home-page.component';
 import { LandpageComponent } from './layers/landpage/landpage.component';
 import { TrainingsessionPageComponent } from './layers/trainingsession-page/trainingsession-page.component';
 
@@ -14,7 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: LandpageComponent
+        component: HomePageComponent
       },
       {
         path: 'training-session',

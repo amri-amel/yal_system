@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-training-page.component.scss']
 })
 export class AdminTrainingPageComponent implements OnInit {
-
+  date = new Date().getFullYear();
   constructor() { }
 
   ngOnInit(): void {

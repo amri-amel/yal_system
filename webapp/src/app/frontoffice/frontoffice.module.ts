@@ -12,6 +12,9 @@ import { ContactPageComponent } from './layers/contact-page/contact-page.compone
 import { CertificationPageComponent } from './layers/certification-page/certification-page.component';
 import { LandpageComponent } from './layers/landpage/landpage.component';
 import { UserModule } from '../shared/user/user.module';
+import { HomePageComponent } from './layers/home-page/home-page.component';
+import { CardComponent } from '../shared/card/card.component';
+
 
 
 
@@ -26,12 +29,16 @@ import { UserModule } from '../shared/user/user.module';
     ContactPageComponent,
     CertificationPageComponent,
     LandpageComponent,
+    HomePageComponent,
+    CardComponent
+  
   
   ],
   imports: [
     CommonModule,
     FrontofficeRoutingModule,
-    UserModule
+    UserModule,
+    
   ]
 })
 export class FrontofficeModule { }

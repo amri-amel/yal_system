@@ -1,0 +1,55 @@
+
+       
+
+
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Name" formControlName="name"></textarea>
+              <mat-error *ngIf="coachForm.controls['name'].hasError('required')">
+                name <strong>is required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+      
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Email" formControlName="email"></textarea>
+              <mat-error *ngIf="coachForm.controls['email'].hasError('required')">
+                email <strong>is required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+        
+  
+    
+  
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-label>Role</mat-label>
+              <mat-select formControlName="role">
+                <mat-option *ngFor="let dType of userRole" [value]="dType.value">
+                  {{dType.viewValue}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="coachForm.controls['role'].hasError('required')">
+                role <strong>is required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+  
+     
+      <mat-card-actions class="flex flex-row w-full ">
+        <button  mat-raised-button [routerLink]="['/admin/coaches']">Cancel</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()"
+        [disabled]="!coachForm.valid">Save</button>
+      </mat-card-actions>
+   

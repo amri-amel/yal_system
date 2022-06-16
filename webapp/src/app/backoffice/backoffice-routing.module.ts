@@ -6,6 +6,11 @@ import { AdminCoursesPageComponent } from './layers/admin-courses-page/admin-cou
 import { AdminLandpageComponent } from './layers/admin-landpage/admin-landpage.component';
 import { UpdateCourseComponent } from '../shared/courses/update-course/update-course.component';
 import { CourseResolver } from '../shared/courses/course.resolver';
+import { AdminCoachesPageComponent } from './layers/admin-coaches-page/admin-coaches-page.component';
+import { CoachListComponent } from '../shared/coach/coach-list/coach-list.component';
+import { AddCoachComponent } from '../shared/coach/add-coach/add-coach.component';
+import { UpdateCoachComponent } from '../shared/coach/update-coach/update-coach.component';
+
 
 
 
@@ -40,6 +45,29 @@ const routes: Routes = [
           }
         ]
       },
+      //coachs
+      {
+        path:'coaches',
+        component: AdminCoachesPageComponent,
+        children:[
+          {
+            path:'',
+            component:CoachListComponent
+          },
+          {
+            path:'add',
+            component: AddCoachComponent
+          },
+          {
+            path:'update/:id',
+            component: UpdateCoachComponent,
+            resolve:{
+              course:CourseResolver
+            }
+          }
+        ]
+      },
+     
       {
         path: '**',
         redirectTo: '',

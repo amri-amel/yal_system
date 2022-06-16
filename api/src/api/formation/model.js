@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
-import { User } from '../../../models/user';
-import {Course} from '../../../models/course';
+
+
 
 const formationSchema = new Schema({
   titre: {
