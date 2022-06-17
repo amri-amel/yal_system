@@ -30,6 +30,7 @@ export default (apiRoot, routes) => {
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
   app.use(apiRoot, routes)
+  app.use('/api/v1/uploads', express.static('uploads'))
   app.use(queryErrorHandler())
   app.use(bodyErrorHandler())
 

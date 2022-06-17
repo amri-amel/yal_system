@@ -8,12 +8,20 @@
 	- [Authenticate with Github](#authenticate-with-github)
 	- [Authenticate with Google](#authenticate-with-google)
 	
+- [Coach](#coach)
+	- [Create coach](#create-coach)
+	- [Delete coach](#delete-coach)
+	- [Retrieve coach](#retrieve-coach)
+	- [Retrieve coaches](#retrieve-coaches)
+	- [Update coach](#update-coach)
+	
 - [Course](#course)
 	- [Create course](#create-course)
 	- [Delete course](#delete-course)
 	- [Retrieve course](#retrieve-course)
 	- [Retrieve courses](#retrieve-courses)
 	- [Update course](#update-course)
+	- [Update cover course](#update-cover-course)
 	
 - [Formation](#formation)
 	- [Create formation](#create-formation)
@@ -97,6 +105,94 @@
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Google user accessToken.</p>							|
 
+# Coach
+
+## Create coach
+
+
+
+	POST /coaches
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| fullName			| 			|  <p>Coach's fullName.</p>							|
+| email			| 			|  <p>Coach's email.</p>							|
+| speciality			| 			|  <p>Coach's speciality.</p>							|
+| phone			| 			|  <p>Coach's phone.</p>							|
+| address			| 			|  <p>Coach's address.</p>							|
+| city			| 			|  <p>Coach's city.</p>							|
+| country			| 			|  <p>Coach's country.</p>							|
+| observations			| 			|  <p>Coach's observations.</p>							|
+
+## Delete coach
+
+
+
+	DELETE /coaches/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+
+## Retrieve coach
+
+
+
+	GET /coaches/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+
+## Retrieve coaches
+
+
+
+	GET /coaches
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| q			| String			| **optional** <p>Query to search.</p>							|
+| page			| Number			| **optional** <p>Page number.</p>							|
+| limit			| Number			| **optional** <p>Amount of returned items.</p>							|
+| sort			| String[]			| **optional** <p>Order of returned items.</p>							|
+| fields			| String[]			| **optional** <p>Fields to be returned.</p>							|
+
+## Update coach
+
+
+
+	PUT /coaches/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| fullName			| 			|  <p>Coach's fullName.</p>							|
+| email			| 			|  <p>Coach's email.</p>							|
+| speciality			| 			|  <p>Coach's speciality.</p>							|
+| phone			| 			|  <p>Coach's phone.</p>							|
+| address			| 			|  <p>Coach's address.</p>							|
+| city			| 			|  <p>Coach's city.</p>							|
+| country			| 			|  <p>Coach's country.</p>							|
+| observations			| 			|  <p>Coach's observations.</p>							|
+
 # Course
 
 ## Create course
@@ -173,6 +269,20 @@
 | author			| 			|  <p>Course's author.</p>							|
 | isFeatured			| 			|  <p>Course's isFeatured.</p>							|
 | category			| 			|  <p>Course's category.</p>							|
+
+## Update cover course
+
+
+
+	PUT /courses/cover/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>master access token.</p>							|
+| cover			| 			|  <p>Course's cover.</p>							|
 
 # Formation
 

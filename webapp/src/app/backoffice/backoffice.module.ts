@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesModule } from '../shared/courses/courses.module';
+import { CoachModule } from '../shared/coach/coach.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CoursesModule } from '../shared/courses/courses.module';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CoursesModule
+    CoursesModule,
+    CoachModule
   ]
 })
 export class BackofficeModule { }

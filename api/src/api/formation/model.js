@@ -1,5 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
+
+
 const formationSchema = new Schema({
   titre: {
     type: String
@@ -12,6 +14,16 @@ const formationSchema = new Schema({
   },
   theme: {
     type: String
+  },
+  courses: [{
+    courseId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Course'
+    }
+  }],
+  coach: {
+    type: mongoose.Types.ObjectId,
+    ref: 'User'
   }
 }, {
   timestamps: true,
@@ -22,7 +34,7 @@ const formationSchema = new Schema({
 })
 
 formationSchema.methods = {
-  view (full) {
+  view(full) {
     const view = {
       // simple view
       id: this.id,

@@ -9,12 +9,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserModule } from './shared/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
+import { NgxUploaderModule } from 'ngx-uploader';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+   
+   
+   
+  
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
     ReactiveFormsModule,
     UserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

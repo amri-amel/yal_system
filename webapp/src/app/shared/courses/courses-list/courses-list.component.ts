@@ -71,13 +71,13 @@ export class CoursesListComponent implements OnInit,AfterViewInit {
   removeCourse(id:string){
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '450px',
-      data: "Confirmez vous la suppression de la Robe? "
+      data: "Are you sure to delete this course? "
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.coursesService.removeCourse(id).subscribe({
           next:(data)=>{
-                this.snackBar.open('La robe à été supprimer avec succée','X');
+                this.snackBar.open('Courses deleted successfully ','X');
                 this.dataSource.loadCourses('',1, 10);
           },
           error:(error)=>{

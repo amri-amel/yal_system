@@ -4,6 +4,7 @@ import auth from './auth'
 import passwordReset from './password-reset'
 import formation from './formation'
 import course from './course'
+import coach from './coach'
 
 const router = new Router()
 
@@ -35,5 +36,9 @@ router.use('/auth', auth)
 router.use('/password-resets', passwordReset)
 router.use('/formations', formation)
 router.use('/courses', course)
+router.use('/coaches', coach)
 
 export default router
+
+
+//TODO: To Implement USERs Management in front
