@@ -11,7 +11,13 @@ import { CoachService } from '../coach.service';
 })
 export class AddCoachComponent implements OnInit {
 
+  public coachSpeciality: {value:string, viewValue:string}[] = [
+    { value: 'Web Developement', viewValue: 'Web Developement' },
+    { value: 'UX Design', viewValue: 'UX Design' },
+    { value: 'Dev-Ops', viewValue: 'Dev-Ops' },
+    { value: 'Data Science', viewValue: 'Data Science' },
 
+  ];
 
   coachForm = this.fb.group({
     fullName: [null, Validators.required],

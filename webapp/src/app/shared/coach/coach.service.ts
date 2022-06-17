@@ -20,7 +20,7 @@ export class CoachService {
     return this.http.post(`${environment.API_URL}/coaches`,coach,{ 'headers': headers }) as Observable<any>
   }
 
-  findCoach(filter = '',pageNumber=1,pageSize=10,sortField='Name' ):Observable<any>{
+  findCoach(filter = '',pageNumber=1,pageSize=10,sortField='fullName' ):Observable<any>{
     return this.http.get(`${environment.API_URL}/coaches`,
       {
         params:new HttpParams()
