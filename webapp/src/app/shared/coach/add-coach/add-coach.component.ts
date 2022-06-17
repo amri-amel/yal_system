@@ -27,7 +27,7 @@ export class AddCoachComponent implements OnInit {
     address: [null, Validators.required],
     city: [null, Validators.required],
     country: [null, Validators.required],
-    observations: [null, Validators.required]
+    observations: [null]
    
   });
 
