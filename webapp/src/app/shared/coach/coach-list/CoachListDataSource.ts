@@ -16,7 +16,7 @@ export class CoashListDataSource extends DataSource<ICoach> {
     super();
   }
   
-  loadCourses(query = '',  pageIndex = 1, pageSize = 10,sortField='label') {
+  loadCoaches(query = '',  pageIndex = 1, pageSize = 10,sortField='label') {
     this.coachSubject.next(true);
     this.coachService.findCoach(
       query,
