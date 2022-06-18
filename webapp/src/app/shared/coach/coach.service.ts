@@ -24,10 +24,11 @@ export class CoachService {
     return this.http.get(`${environment.API_URL}/coaches`,
       {
         params:new HttpParams()
+          .set('master_key', 'masterKey')
           .set('q', filter)
           .set('page', pageNumber.toString())
           .set('limit', pageSize.toString())
-          .set('sort', sortField) ,
+          .set('sort', sortField),
         'headers': headers
       }
     ) as Observable<any>
