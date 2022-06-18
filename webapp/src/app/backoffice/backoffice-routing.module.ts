@@ -10,6 +10,7 @@ import { AdminCoachesPageComponent } from './layers/admin-coaches-page/admin-coa
 import { CoachListComponent } from '../shared/coach/coach-list/coach-list.component';
 import { AddCoachComponent } from '../shared/coach/add-coach/add-coach.component';
 import { UpdateCoachComponent } from '../shared/coach/update-coach/update-coach.component';
+import { CoachResolver } from '../shared/coach/coach.resolver';
 
 
 
@@ -62,7 +63,7 @@ const routes: Routes = [
             path:'update/:id',
             component: UpdateCoachComponent,
             resolve:{
-              course:CourseResolver
+              coach:CoachResolver
             }
           }
         ]
