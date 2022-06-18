@@ -37,7 +37,6 @@ router.post('/',
  * @api {get} /coaches Retrieve coaches
  * @apiName RetrieveCoaches
  * @apiGroup Coach
- * @apiPermission master
  * @apiParam {String} access_token master access token.
  * @apiUse listParams
  * @apiSuccess {Number} count Total amount of coaches.
@@ -46,7 +45,7 @@ router.post('/',
  * @apiError 401 master access only.
  */
 router.get('/',
-  master(),
+  token({ required: true, roles: ['admin','user','coach','student','partner'] }),
   query(),
   index)
 
@@ -54,7 +53,6 @@ router.get('/',
  * @api {get} /coaches/:id Retrieve coach
  * @apiName RetrieveCoach
  * @apiGroup Coach
- * @apiPermission master
  * @apiParam {String} access_token master access token.
  * @apiSuccess {Object} coach Coach's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
@@ -62,14 +60,13 @@ router.get('/',
  * @apiError 401 master access only.
  */
 router.get('/:id',
-  master(),
+  token({ required: true, roles: ['admin','user','coach','student','partner'] }),
   show)
 
 /**
  * @api {put} /coaches/:id Update coach
  * @apiName UpdateCoach
  * @apiGroup Coach
- * @apiPermission master
  * @apiParam {String} access_token master access token.
  * @apiParam fullName Coach's fullName.
  * @apiParam email Coach's email.
@@ -85,7 +82,6 @@ router.get('/:id',
  * @apiError 401 master access only.
  */
 router.put('/:id',
-  master(),
   token({ required: true, roles: ['admin'] }),
   body({ fullName, email, speciality, phone, address, city, country, observations }),
   update)
@@ -94,14 +90,12 @@ router.put('/:id',
  * @api {delete} /coaches/:id Delete coach
  * @apiName DeleteCoach
  * @apiGroup Coach
- * @apiPermission master
  * @apiParam {String} access_token master access token.
  * @apiSuccess (Success 204) 204 No Content.
  * @apiError 404 Coach not found.
  * @apiError 401 master access only.
  */
 router.delete('/:id',
-  master(),
   token({ required: true, roles: ['admin'] }),
   destroy)
 
