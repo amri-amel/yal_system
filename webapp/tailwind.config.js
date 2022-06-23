@@ -3,7 +3,12 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'coursesadd': "url('./assets/course.jpg')",
+      
+      }
+    },
   },
   plugins: [],
 }

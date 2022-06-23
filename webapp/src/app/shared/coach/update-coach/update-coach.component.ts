@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoachService } from '../coach.service';
@@ -76,7 +77,7 @@ export class UpdateCoachComponent implements OnInit {
     let coach = this.coachForm.value;
     this.coachService.updateCoach(this.currentCoachId, coach).subscribe({
       next: (data) => {
-        this.router.navigate(['/admin/couches']);
+        this.router.navigate(['/admin/coaches']);
         this.snackBar.open("Coach Updated Successfully", 'x')
       },
       error: (error) => {
@@ -86,6 +87,9 @@ export class UpdateCoachComponent implements OnInit {
       complete: () => { }
     })
   }
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
+ 
 
 
 }
