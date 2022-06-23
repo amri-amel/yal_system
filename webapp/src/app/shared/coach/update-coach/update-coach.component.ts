@@ -16,7 +16,7 @@ export class UpdateCoachComponent implements OnInit {
 
   public ngSelect?:any;
 
-  public spaciality:any = [
+  public specialities:any = [
     { value: 'Web Developement', viewValue: 'Web Developement' },
     { value: 'UX Design', viewValue: 'UX Design' },
     { value: 'Dev-Ops', viewValue: 'Dev-Ops' },
@@ -57,6 +57,7 @@ export class UpdateCoachComponent implements OnInit {
           address: coach.address,
           city: coach.city,
           country: coach.country,
+          speciality:coach.speciality,
           observations: coach.observations
         });
 

@@ -1,130 +1,121 @@
-<section class="h-screen">
+<section class="w-full h-full">
   <div class="h-full px-6 text-gray-800">
     <div class="flex flex-wrap items-center justify-center h-full xl:justify-center lg:justify-between g-6">
       <div class="mb-12 grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 md:mb-0">
-      <form [formGroup]="coachForm" novalidate>
-      <mat-card class="coach-card">
-        <mat-card-header>
-          <mat-card-title>Update Coach</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          
-            <div class="mb-12 grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 md:mb-0">
-              <div class="row">
-                <div class="col">
-                  <mat-form-field class="full-width">
-                    <input matInput placeholder="Full Name" formControlName="fullName">
-                    <mat-error *ngIf="coachForm.controls['fullName'].hasError('required')">
-                      Full Name <strong>is required</strong>
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col">
-                  <mat-form-field class="full-width"appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput placeholder="Ex. pat@example.com" formControlName="email" >
-           
-           
-          <mat-error *ngIf="coachForm.controls['email'].hasError('required')">
-            Email is <strong>required</strong>
-          </mat-error>
-                  </mat-form-field>
-
-                  <div class="row">
-                    <div class="col">
-                      <mat-form-field class="full-width">
-                        <mat-label>Speciality</mat-label>
-                        <mat-select formControlName="speciality">
-                          <mat-option *ngFor="let speciality of spaciality" [value]="speciality.value">
-                            {{speciality.viewValue}}
-                          </mat-option>
-                        </mat-select>
-                        <mat-error *ngIf="coachForm.controls['speciality'].hasError('required')">
-                          Speciality <strong>is required</strong>
-                        </mat-error>
-                      </mat-form-field>
-                    </div>
-                  </div>
-
+        <form [formGroup]="coachForm" novalidate>
+          <mat-card-header>
+            <mat-card-title>Update Coach</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+          <div class="flex md:flex-col lg:flex-row xl:flex-row sm:flex-col">
+              <div class="w-full px-3 py-3 mx-3 my-3">
+                <div class="row">
                   <div class="col">
-                    <mat-form-field class="full-width"appearance="fill">
-                      <input matInput placeholder="Phone" formControlName="phone"  >
-                      <mat-label>Phone</mat-label>
-                      <span matPrefix>+216 &nbsp;</span>
-                      <mat-error *ngIf="coachForm.controls['phone'].hasError('required')">
-                        Phone <strong>is required</strong>
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Full Name" formControlName="fullName">
+                      <mat-error *ngIf="coachForm.controls['fullName'].hasError('required')">
+                        Full Name <strong>is required</strong>
                       </mat-error>
                     </mat-form-field>
                   </div>
                 </div>
-              </div>
 
-</div>
-</mat-card-content>
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width" appearance="fill">
+                      <mat-label>Email</mat-label>
+                      <input matInput placeholder="Ex. pat@example.com" formControlName="email">
 
-            <!-- second -->
-            <div class="mb-12 xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 md:mb-0">
-              <div class="row">
-                <div class="col">
-                  <mat-form-field class="full-width">
-                    <input matInput placeholder="Address" formControlName="address">
-                    <mat-error *ngIf="coachForm.controls['address'].hasError('required')">
-                      Address <strong>is required</strong>
-                    </mat-error>
-                  </mat-form-field>
+
+                      <mat-error *ngIf="coachForm.controls['email'].hasError('required')">
+                        Email is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+
+                    <div class="row">
+                      <div class="col">
+                        <mat-form-field class="full-width">
+                          <mat-label>Speciality</mat-label>
+                          <mat-select formControlName="speciality">
+                            <mat-option *ngFor="let speciality of specialities" 
+                            [value]="speciality.value"
+                            selected="speciality.value === ngSelect">
+                              {{speciality.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="coachForm.controls['speciality'].hasError('required')">
+                            Speciality <strong>is required</strong>
+                          </mat-error>
+                        </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <mat-form-field class="full-width" appearance="fill">
+                        <input matInput placeholder="Phone" formControlName="phone">
+                        <mat-label>Phone</mat-label>
+                        <span matPrefix>+216 &nbsp;</span>
+                        <mat-error *ngIf="coachForm.controls['phone'].hasError('required')">
+                          Phone <strong>is required</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="col">
-                  <mat-form-field class="full-width">
-                    <input matInput placeholder="City" formControlName="city">
-                    <mat-error *ngIf="coachForm.controls['city'].hasError('required')">
-                      City <strong>is required</strong>
-                    </mat-error>
-                  </mat-form-field>
+              <!-- second -->
+              <div class="w-full px-3 py-3 mx-3 my-3">
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Address" formControlName="address">
+                      <mat-error *ngIf="coachForm.controls['address'].hasError('required')">
+                        Address <strong>is required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col">
-                  <mat-form-field class="full-width">
-                    <input matInput placeholder="Country" formControlName="country">
-                    <mat-error *ngIf="coachForm.controls['country'].hasError('required')">
-                      Country <strong>is required</strong>
-                    </mat-error>
-                  </mat-form-field>
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="City" formControlName="city">
+                      <mat-error *ngIf="coachForm.controls['city'].hasError('required')">
+                        City <strong>is required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="col">
-                  <mat-form-field class="full-width">
-                    <textarea matInput placeholder="observations" formControlName="observations"></textarea>
-                  </mat-form-field>
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Country" formControlName="country">
+                      <mat-error *ngIf="coachForm.controls['country'].hasError('required')">
+                        Country <strong>is required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <mat-form-field class="full-width">
+                      <textarea matInput placeholder="observations" formControlName="observations"></textarea>
+                    </mat-form-field>
+                  </div>
                 </div>
               </div>
+              
             </div>
-          </div>
-     
-    
-        <mat-card-actions class="flex flex-row w-full ">
-          <button mat-raised-button [routerLink]="['/admin/coaches']">Cancel</button>
-          <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!coachForm.valid">Save</button>
-        </mat-card-actions>
-      </mat-card>
-      
-      </form>>
-   
-   
+            <mat-card-actions class="flex flex-row w-full ">
+              <button mat-raised-button [routerLink]="['/admin/coaches']">Cancel</button>
+              <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!coachForm.valid">Save</button>
+            </mat-card-actions>
+          </mat-card-content>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 </section>
-
-
-
-
-
