@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-
+import {MatStepperModule, StepperOrientation} from '@angular/material/stepper';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoachService } from '../coach.service';
+import { Observable } from 'rxjs';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-update-coach',
@@ -35,14 +38,18 @@ export class UpdateCoachComponent implements OnInit {
     observations: [null]
    
   });
-
+  stepperOrientation: Observable<StepperOrientation>;
+ 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private coachService: CoachService,
-    private snackBar: MatSnackBar,) {
-  
+    private snackBar: MatSnackBar,breakpointObserver: BreakpointObserver) {
+      this.stepperOrientation = breakpointObserver
+      .observe('(min-width: 800px)')
+      .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   }
+  
 
   ngOnInit(): void {
     this.route.data.subscribe({
@@ -90,7 +97,7 @@ export class UpdateCoachComponent implements OnInit {
   }
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
- 
+  
 
 
 }

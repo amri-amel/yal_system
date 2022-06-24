@@ -14,6 +14,7 @@ import { LandpageComponent } from './layers/landpage/landpage.component';
 import { UserModule } from '../shared/user/user.module';
 import { HomePageComponent } from './layers/home-page/home-page.component';
 import { CardComponent } from '../shared/card/card.component';
+import { FormationPageComponent } from './layers/formation-page/formation-page.component';
 
 
 
@@ -30,7 +31,8 @@ import { CardComponent } from '../shared/card/card.component';
     CertificationPageComponent,
     LandpageComponent,
     HomePageComponent,
-    CardComponent
+    CardComponent,
+    FormationPageComponent
   
   
   ],

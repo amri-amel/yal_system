@@ -13,6 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {  MatStepper, MatStepperModule } from '@angular/material/stepper';
 
 
 
@@ -34,7 +35,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatStepperModule,
   ],
 
   exports:[

@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confirmation-dialog.component';
 import { NgxUploaderModule } from 'ngx-uploader';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { NotfoundPageComponent } from './shared/notfound-page/notfound-page.component';
 
 
 
@@ -19,6 +20,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
   declarations: [
     AppComponent,
     ConfirmationDialogComponent,
+    NotfoundPageComponent,
   ],
   imports: [
     BrowserModule,
