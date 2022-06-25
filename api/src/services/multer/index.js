@@ -20,6 +20,6 @@ const upload = multer({ storage: localStorage })
 
 export const courseUpload = upload.single('cover')
 
-//export const bcServiceUpload = upload.single('photo');
+export const courseResource = upload.single('chapitre');
  
   //export const photosUpload = upload.array('photos', 12);

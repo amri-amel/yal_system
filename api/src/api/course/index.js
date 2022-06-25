@@ -1,13 +1,15 @@
 import { Router } from 'express'
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
-import { master } from '../../services/passport'
-import { create, index, show, update, destroy, uploadCourseCover } from './controller'
+import { token } from '../../services/passport'
+import { create, index, show, update, destroy, 
+  uploadCourseCover, addChapter } from './controller'
 import { schema } from './model'
 export Course, { schema } from './model'
 
 const router = new Router()
 const { title, description, cover, author, isFeatured, category } = schema.tree
+
 
 /**
  * @api {post} /courses Create course
@@ -27,7 +29,7 @@ const { title, description, cover, author, isFeatured, category } = schema.tree
  * @apiError 401 master access only.
  */
 router.post('/',
-  master(),
+  token({ required: true, roles: ['admin'] }),
   body({ title, description, author, isFeatured, category }),
   create)
 
@@ -73,9 +75,35 @@ router.get('/:id',
  * @apiError 401 master access only.
  */
 router.put('/:id',
-  master(),
+  token({ required: true, roles: ['admin'] }),
   body({ title, description,  author, isFeatured, category }),
   update)
+
+  /**
+ * @api {post} /courses/:id/addchapter add chapter
+ * @apiName UpdateChapter
+ * @apiGroup Course
+ * @apiParam {String} access_token admin access token.
+ * @apiParam title chapter's title.
+ * @apiParam content chapter's content.
+ * @apiSuccess {Object} course chapter's data.
+ * @apiError {Object} 400 Some parameters may contain invalid values.
+ * @apiError 404 Course not found.
+
+ */
+router.post('/:id/addchapter',
+token({ required: true, roles: ['admin'] }),
+body( {title: {
+  type: String,
+  required: true,
+  trim: true,
+  minlength: 3
+},
+content: {
+  type: String,
+  required: true,
+}}),
+addChapter)
 
 /**
  * @api {put} /courses/cover/:id Update cover course
@@ -90,7 +118,7 @@ router.put('/:id',
  * @apiError 401 master access only.
  */
  router.put('/cover/:id',
- //master(),
+ token({ required: true, roles: ['admin'] }),
  uploadCourseCover)
 
 
@@ -105,7 +133,7 @@ router.put('/:id',
  * @apiError 401 master access only.
  */
 router.delete('/:id',
-  master(),
+  token({ required: true, roles: ['admin'] }),
   destroy)
 
 export default router

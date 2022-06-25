@@ -20,20 +20,38 @@ const courseSchema = new Schema({
   category: {
     type: String
   },
-  ressource: {
-    type: String
-  }
+  chapters: [
+    {
+      title: {
+        type: String,
+        required: true
+      },
+      content: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  ressourceLinks: [
+    {
+      ressourseName: {
+        type: String
+      },
+      link: {
+        type: String
+      }
+    }],
 },
- {
-  timestamps: true,
-  toJSON: {
-    virtuals: true,
-    transform: (obj, ret) => { delete ret._id }
-  }
-})
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      transform: (obj, ret) => { delete ret._id }
+    }
+  })
 
 courseSchema.methods = {
-  view (full) {
+  view(full) {
     const view = {
       // simple view
       id: this.id,
@@ -43,7 +61,8 @@ courseSchema.methods = {
       author: this.author,
       isFeatured: this.isFeatured,
       category: this.category,
-      ressource:this.ressource,
+      ressourceLinks: this.ressourceLinks,
+      chapters:this.chapters,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -55,7 +74,7 @@ courseSchema.methods = {
   }
 }
 
-courseSchema.plugin(mongooseKeywords, { paths: ['title', 'description','author'] })
+courseSchema.plugin(mongooseKeywords, { paths: ['title', 'description', 'author'] })
 
 const model = mongoose.model('Course', courseSchema)
 
