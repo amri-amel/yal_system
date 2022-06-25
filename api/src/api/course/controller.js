@@ -42,7 +42,7 @@ export const destroy = ({ params }, res, next) =>
     .catch(next)
 
 
-export const uploadCourseCover = async(req,res,next)=>{
+export const uploadCourseCover = async (req, res, next) => {
   await courseUpload(req, res, async (error) => {
     if (error) {
       res.json({ error: error })
@@ -57,4 +57,26 @@ export const uploadCourseCover = async(req,res,next)=>{
       next(error)
     }
   })
+}
+
+export const addChapter = async (req, res, next) => {
+  let courseId = req.params.id;
+  let newChapter = req.body
+
+  try {
+    let course = await Course.findById(courseId);
+    if (course) {
+      course.chapters.push(newChapter);
+      let result = await course.save();
+      if (result) {
+        res.json(result, 204)
+      }else{
+        next()
+      }
+    }
+
+  } catch (error) {
+    next(error)
+  }
+
 }

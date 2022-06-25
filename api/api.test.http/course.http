@@ -1,0 +1,13 @@
+GET http://localhost:9000/api/v1/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTEwMDkwYjg4ZjEwNzVhMDIwNDY0NiIsImlhdCI6MTY1NjE3NDgwN30.c9QTHD8gPAzDsWlBm4pfN___TE71jR4NNHlJ3_BuDAQ
+
+
+###
+POST http://localhost:9000/api/v1/courses/62b449ca2b8e0521a8f7cc8d/addchapter
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTEwMDkwYjg4ZjEwNzVhMDIwNDY0NiIsImlhdCI6MTY1NjE3NDgwN30.c9QTHD8gPAzDsWlBm4pfN___TE71jR4NNHlJ3_BuDAQ
+Content-Type: application/json
+
+{
+    "title":"JPA",
+    "content":"<h1>JPA</h1><p>JPA is data abstract layer</p>"
+}

@@ -1,0 +1,2 @@
+POST http://localhost:9000/api/v1/auth?access_token=masterKey 
+ Authorization: Basic aGVsYWxpZmVyaWRAZ21haWwuY29tOjAwMDAwMA==
