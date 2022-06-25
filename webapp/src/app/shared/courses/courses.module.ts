@@ -11,6 +11,8 @@ import { CoursesListComponent } from './courses-list/courses-list.component';
 import { UploadCourseCoverComponent } from './upload-course-cover/upload-course-cover.component';
 import { NgxUploaderModule } from 'ngx-uploader';
 import { UploadCourseChapitresComponent } from './upload-course-chapitres/upload-course-chapitres.component';
+import { AddChapterFormComponent } from './update-course/add-chapter-form/add-chapter-form.component';
+import { ChaptersListComponent } from './update-course/chapters-list/chapters-list.component';
 
 
 
@@ -20,7 +22,9 @@ import { UploadCourseChapitresComponent } from './upload-course-chapitres/upload
     UpdateCourseComponent,
     CoursesListComponent,
     UploadCourseCoverComponent,
-    UploadCourseChapitresComponent
+    UploadCourseChapitresComponent,
+    AddChapterFormComponent,
+    ChaptersListComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +39,9 @@ import { UploadCourseChapitresComponent } from './upload-course-chapitres/upload
     UpdateCourseComponent,
     CoursesListComponent,
     UploadCourseCoverComponent,
-    UploadCourseChapitresComponent
+    UploadCourseChapitresComponent,
+    AddChapterFormComponent,
+    ChaptersListComponent
   ]
 })
 export class CoursesModule { }

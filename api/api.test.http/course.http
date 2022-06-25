@@ -8,6 +8,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTEwMDkwY
 Content-Type: application/json
 
 {
-    "title":"JPA",
-    "content":"<h1>JPA</h1><p>JPA is data abstract layer</p>"
+    "title":"LAMBOK",
+    "content":"<h1>LAMBOCK</h1><p>Lambock is utilities to generate getters and setters for developer</p>"
 }

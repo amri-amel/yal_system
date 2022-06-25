@@ -17,7 +17,7 @@ export class CoachService {
   constructor(private http:HttpClient) {}
 
   addCoach(coach: ICoach):Observable<any>{
-    return this.http.post(`${environment.API_URL}/coaches`,coach,{ 'headers': headers }) as Observable<any>
+    return this.http.post(`${environment.API_URL}/coaches`,coach) as Observable<any>
   }
 
   findCoach(filter = '',pageNumber=1,pageSize=10,sortField='fullName' ):Observable<any>{

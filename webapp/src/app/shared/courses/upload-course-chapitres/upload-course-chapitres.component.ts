@@ -83,7 +83,7 @@ export class UploadCourseChapitresComponent implements OnInit {
       url: `${environment.environment.API_URL}/courses/ressources/${this.courseId}`,
       method: 'PUT',
       data: { courseId: this.courseId },
-      fieldName: 'ressourse',
+      fieldName: 'chapter',
     };
 
     this.uploadInput.emit(event);
