@@ -13,7 +13,8 @@ import { CoursesService } from '../courses.service';
 export class UpdateCourseComponent implements OnInit {
 
   currentCourseId: string = '';
-  currentPhotoUrl: string = ''
+  currentPhotoUrl: string = '';
+  chapters:[]=[];
 
   public ngSelect?:any;
 
@@ -30,7 +31,7 @@ export class UpdateCourseComponent implements OnInit {
     description: [null, Validators.required],
     author: [null, Validators.required],
     category: [null, Validators.required],
-    isFeatured:[false]
+    isFeatured:[false],
   });
 
   constructor(private fb: FormBuilder,
@@ -52,9 +53,9 @@ export class UpdateCourseComponent implements OnInit {
           description: course['description'],
           author: course['author'],
           category: course['category'],
-          isFeatured: course['isFeatured']
+          isFeatured: course['isFeatured'],
         });
-
+        this.chapters=course['chapters']
         this.ngSelect = course.category;
 
       },
@@ -70,6 +71,7 @@ export class UpdateCourseComponent implements OnInit {
 
   onSubmit(): void {
     let course = this.courseForm.value;
+    course.chapters=this.chapters;
     this.coursesService.updateCourse(this.currentCourseId, course).subscribe({
       next: (data) => {
         this.router.navigate(['/admin/courses']);
@@ -95,6 +97,11 @@ export class UpdateCourseComponent implements OnInit {
     return photoHrl ?
     `${environment.API_URL}/${photoHrl}`:
     'assets/defaultCourse.png';
+  }
+
+  displayAddChapterFormDialog(){
+    //TODO: implemetn display add ChapertForm
+    alert('Add Chapter Form Dialog')
   }
 
 

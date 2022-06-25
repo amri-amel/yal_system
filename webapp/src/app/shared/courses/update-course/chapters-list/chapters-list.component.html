@@ -1,0 +1,18 @@
+
+<table class="border border-separate border-spacing-2 hover:border-spacing-4 border-slate-400">
+    <thead>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+        <th  class="border border-slate-300">Title</th>
+        <th  class="border border-slate-300">Content</th>
+        <th  class="border border-slate-300">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" scope="row"
+      *ngFor="let chapter of chapters;let i=index">
+        <td>{{chapter.title}}</td>
+        <td [innerHTML]="chapter.content"></td>
+        <td>Delete</td>
+      </tr>
+    </tbody>
+  </table>
