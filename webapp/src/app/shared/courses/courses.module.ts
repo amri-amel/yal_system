@@ -10,6 +10,7 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { UploadCourseCoverComponent } from './upload-course-cover/upload-course-cover.component';
 import { NgxUploaderModule } from 'ngx-uploader';
+import { UploadCourseChapitresComponent } from './upload-course-chapitres/upload-course-chapitres.component';
 
 
 
@@ -18,7 +19,8 @@ import { NgxUploaderModule } from 'ngx-uploader';
     AddCourseComponent,
     UpdateCourseComponent,
     CoursesListComponent,
-    UploadCourseCoverComponent
+    UploadCourseCoverComponent,
+    UploadCourseChapitresComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { NgxUploaderModule } from 'ngx-uploader';
     AddCourseComponent,
     UpdateCourseComponent,
     CoursesListComponent,
-    UploadCourseCoverComponent
+    UploadCourseCoverComponent,
+    UploadCourseChapitresComponent
   ]
 })
 export class CoursesModule { }

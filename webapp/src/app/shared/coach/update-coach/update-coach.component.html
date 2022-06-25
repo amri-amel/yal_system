@@ -1,8 +1,8 @@
-<section class="w-full h-full">
+<section class="w-full h-full  ">
   <div class="h-full px-6 text-gray-800">
     <div class="flex flex-wrap items-center justify-center h-full xl:justify-center lg:justify-between g-6">
       <div class="mb-12 grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 md:mb-0">
-        <img src="./assets/update.jpg" class="w-full"
+        <img src="./assets/up.jpg" class="w-full"
           alt="Sample image" />
       </div>
       <div class="mb-12 grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 md:mb-0">
@@ -21,7 +21,9 @@
         >
           <mat-step [stepControl]="coachForm">
             <form [formGroup]="coachForm">
+              <h1>Update Coach</h1>
               <ng-template matStepLabel>First part</ng-template>
+              
               <mat-form-field appearance="fill">
                 <input matInput placeholder="Full Name" formControlName="fullName">
                 <mat-label>Full Name</mat-label>

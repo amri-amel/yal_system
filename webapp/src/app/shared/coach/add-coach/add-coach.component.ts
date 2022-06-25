@@ -1,7 +1,11 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { StepperOrientation } from '@angular/cdk/stepper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { map } from 'rxjs/internal/operators/map';
 import { CoachService } from '../coach.service';
 
 @Component({
@@ -30,13 +34,16 @@ export class AddCoachComponent implements OnInit {
     observations: [null]
    
   });
-
+  stepperOrientation: Observable<StepperOrientation>;
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
               private courseService: CoachService,
-              private snackBar: MatSnackBar,) {
-    ;
+              private snackBar: MatSnackBar,breakpointObserver: BreakpointObserver) {
+
+                this.stepperOrientation = breakpointObserver
+                .observe('(min-width: 800px)')
+                .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
   }
 
 

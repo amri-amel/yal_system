@@ -8,13 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserBadgeComponent } from './user-badge/user-badge.component';
 import { RouterModule } from '@angular/router';
 import { AdminUserBadgeComponent } from './admin-user-badge/admin-user-badge.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 @NgModule({
   declarations: [RegisterFormComponent, 
     LoginFormComponent, 
-    UserBadgeComponent, AdminUserBadgeComponent],
+    UserBadgeComponent, AdminUserBadgeComponent, ProfileComponent],
   imports: [
     CommonModule,
     MaterialModule,

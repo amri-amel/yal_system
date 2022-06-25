@@ -19,8 +19,12 @@ const courseSchema = new Schema({
   },
   category: {
     type: String
+  },
+  ressource: {
+    type: String
   }
-}, {
+},
+ {
   timestamps: true,
   toJSON: {
     virtuals: true,
@@ -39,6 +43,7 @@ courseSchema.methods = {
       author: this.author,
       isFeatured: this.isFeatured,
       category: this.category,
+      ressource:this.ressource,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }

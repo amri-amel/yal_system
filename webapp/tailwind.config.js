@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'coursesadd': "url('./assets/course.jpg')",
+        'coachadd' :"url('./assets/add.jpg')"
       
       }
     },
