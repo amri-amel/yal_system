@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
@@ -14,6 +14,8 @@ import { UploadCourseChapitresComponent } from './upload-course-chapitres/upload
 import { AddChapterFormComponent } from './update-course/add-chapter-form/add-chapter-form.component';
 import { ChaptersListComponent } from './update-course/chapters-list/chapters-list.component';
 import { UploadRessourceComponent } from './upload-ressource/upload-ressource.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 
 
@@ -33,8 +35,10 @@ import { UploadRessourceComponent } from './upload-ressource/upload-ressource.co
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
-    NgxUploaderModule
+    NgxUploaderModule,
+    AngularEditorModule
   ],
   exports:[
     AddCourseComponent,
@@ -44,7 +48,8 @@ import { UploadRessourceComponent } from './upload-ressource/upload-ressource.co
     UploadCourseChapitresComponent,
     AddChapterFormComponent,
     ChaptersListComponent,
-    UploadRessourceComponent
+    UploadRessourceComponent,
+    AngularEditorModule
   ]
 })
 export class CoursesModule { }

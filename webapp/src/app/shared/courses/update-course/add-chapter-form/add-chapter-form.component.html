@@ -22,18 +22,7 @@
 
           <div class="row">
             <div class="col">
-              <mat-form-field class="full-width">
-                <textarea
-                  matInput
-                  placeholder="Content"
-                  formControlName="content"
-                ></textarea>
-                <mat-error
-                  *ngIf="chapterForm.controls['content'].hasError('required')"
-                >
-                  Content <strong>is required</strong>
-                </mat-error>
-              </mat-form-field>
+             <angular-editor formControlName="content" ></angular-editor> 
             </div>
           </div>
         </mat-card-content>

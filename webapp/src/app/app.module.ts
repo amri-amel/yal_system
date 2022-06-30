@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +32,8 @@ import { NotfoundPageComponent } from './shared/notfound-page/notfound-page.comp
     UserModule,
     HttpClientModule,
     FormsModule,
-    NgxUploaderModule
+    NgxUploaderModule,
+    AngularEditorModule
   ],
   providers: [
     {
