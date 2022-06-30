@@ -101,7 +101,8 @@ export class UpdateCourseComponent implements OnInit {
 
   displayAddChapterFormDialog(){
     //TODO: implemetn display add ChapertForm
-    alert('Add Chapter Form Dialog')
+  
+  
   }
 
 
