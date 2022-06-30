@@ -15,7 +15,8 @@ import { AddChapterFormComponent } from './add-chapter-form/add-chapter-form.com
 export class UpdateCourseComponent implements OnInit {
   currentCourseId: string = '';
   currentPhotoUrl: string = '';
-  chapters: [] = [];
+  chapters:any;
+
 
   public ngSelect?: any;
 
@@ -56,7 +57,7 @@ export class UpdateCourseComponent implements OnInit {
           category: course['category'],
           isFeatured: course['isFeatured'],
         });
-        this.chapters = course['chapters'];
+        this.chapters=course['chapters']
         this.ngSelect = course.category;
       },
       error: (error) => console.log(error),
@@ -69,7 +70,8 @@ export class UpdateCourseComponent implements OnInit {
 
   onSubmit(): void {
     let course = this.courseForm.value;
-    course.chapters = this.chapters;
+    course.chapters=this.chapters;
+
     this.coursesService.updateCourse(this.currentCourseId, course).subscribe({
       next: (data) => {
         this.router.navigate(['/admin/courses']);
@@ -105,8 +107,10 @@ export class UpdateCourseComponent implements OnInit {
     dialogConfig.height = '70%';
 
     let dialogRef = this.dialog.open(AddChapterFormComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    });
+    dialogRef.afterClosed().subscribe({
+      next:(result:any) => {
+       this.chapters.push(result.data)
+    }
+  });
   }
 }

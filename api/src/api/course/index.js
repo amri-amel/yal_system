@@ -8,7 +8,7 @@ import { schema } from './model'
 export Course, { schema } from './model'
 
 const router = new Router()
-const { title, description, cover, author, isFeatured, category } = schema.tree
+const { title, description, cover, author, isFeatured, category, chapters } = schema.tree
 
 
 /**
@@ -76,7 +76,7 @@ router.get('/:id',
  */
 router.put('/:id',
   token({ required: true, roles: ['admin'] }),
-  body({ title, description,  author, isFeatured, category }),
+  body({ title, description,  author, isFeatured, category,chapters }),
   update)
 
   /**
