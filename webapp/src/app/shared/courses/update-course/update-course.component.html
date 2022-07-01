@@ -1,21 +1,20 @@
 
-  <div class="bg-purple-50 flex flex-wrap flex-col space-y-4">
-    <div class="flex space-x-4 pt-16 xl: px-8 pb-8">
+ <div class=" h-full grid grid-rows-3 gap-4 col-span-2 content-around mx-20  mt-8">
+  <div class="row-span-3 flex flex-col space-y-4">
       <!--form-->
-      <div
-        class="shadow overflow-hidden border-t border-gray-200 bg-white lg:w-1/3"
+      <div class="box-border   p-4 border-4 "
       >
-        <div class="px-4 py-5 sm:px-6">
-          <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="px-4 py-10 sm:px-6">
+         
             <form [formGroup]="courseForm" novalidate>
               <div>
                 <mat-card-header>
                   <mat-card-title>Update Course</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                  <div class="bg-light-900">
+                  <div class="bg-light-900 ">
                     <div
-                      class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 w-full"
+                      class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 self-center"
                     >
                       <mat-form-field>
                         <input
@@ -110,24 +109,20 @@
                 </mat-card-content>
               </div>
             </form>
-          </div>
+         
   
           
         </div>
       </div>
+  </div>
       <!--  End of form-->
       <!--partie ressourses-->
-     
+      <div class="col-span-2 max-h-80 my-8 ">
       <div
-      class="shadow overflow-hidden border-t border-gray-200 bg-white lg:w-1/3"
+      class="shadow overflow-hidden border-t border-gray-200 bg-white "
     >
     <h2> this Course's Ressources </h2>
-<div>
-    <app-upload-ressource [courseId]="currentCourseId"
-    (uploadRessourseEvent)="refresh($event)"
-    >
-  </app-upload-ressource>
-</div>
+
     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
       <dt class="text-sm font-medium text-gray-500">Attachments</dt>
       <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -159,11 +154,19 @@
         </ul>
       </dd>
     </div>
+    <div>
+      <app-upload-ressource [courseId]="currentCourseId"
+      (uploadRessourseEvent)="refresh($event)"
+      >
+    </app-upload-ressource>
+  </div>
     
       </div>
+      </div>
       <!--part 2-->
+      <div class="row-span-2 col-span-2 my-8 ...">
       <div
-        class="shadow overflow-hidden border-t border-gray-200 bg-white lg:w-1/3"
+      class="shadow overflow-hidden border-t border-gray-200 bg-white "
       >
       
         <button
@@ -176,9 +179,13 @@
         <app-chapters-list [chapters]="chapters"></app-chapters-list>
       </div>
     </div>
+
+
+    
   
     <!--action-->
-    <div class="md:container md:mx-auto pb-8 self-stretch  ">
+ <div class="row-span-2 col-span-2 justify-self-end  my-8 ">
+    <div class="md:container md:mx-auto pb-8  ">
     <div class="self-end">
         <button mat-raised-button [routerLink]="['/admin/courses']">
           Cancel
@@ -194,4 +201,10 @@
   
     </div>
   </div>
-  </div>
+ </div>
+</div>
+
+
+
+
+  

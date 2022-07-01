@@ -68,7 +68,7 @@ const routes: Routes = [
 
       },
       {
-        path: '**',
+        path: ' Front/**',
         component: NotfoundPageComponent,
         //  pathMatch: 'full'
       }

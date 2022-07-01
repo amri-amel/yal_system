@@ -14,11 +14,11 @@ beforeEach(async () => {
 test('POST /formations 201 (master)', async () => {
   const { status, body } = await request(app())
     .post(`${apiRoot}`)
-    .send({ access_token: masterKey, titre: 'test', dateDebut: 'test', duree: 'test', theme: 'test' })
+    .send({ access_token: masterKey, titre: 'test', state: 'test', duree: 'test', theme: 'test' })
   expect(status).toBe(201)
   expect(typeof body).toEqual('object')
   expect(body.titre).toEqual('test')
-  expect(body.dateDebut).toEqual('test')
+  expect(body.state).toEqual('test')
   expect(body.duree).toEqual('test')
   expect(body.theme).toEqual('test')
 })
@@ -69,12 +69,12 @@ test('GET /formations/:id 404 (master)', async () => {
 test('PUT /formations/:id 200 (master)', async () => {
   const { status, body } = await request(app())
     .put(`${apiRoot}/${formation.id}`)
-    .send({ access_token: masterKey, titre: 'test', dateDebut: 'test', duree: 'test', theme: 'test' })
+    .send({ access_token: masterKey, titre: 'test', state: 'test', duree: 'test', theme: 'test' })
   expect(status).toBe(200)
   expect(typeof body).toEqual('object')
   expect(body.id).toEqual(formation.id)
   expect(body.titre).toEqual('test')
-  expect(body.dateDebut).toEqual('test')
+  expect(body.state).toEqual('test')
   expect(body.duree).toEqual('test')
   expect(body.theme).toEqual('test')
 })
@@ -88,7 +88,7 @@ test('PUT /formations/:id 401', async () => {
 test('PUT /formations/:id 404 (master)', async () => {
   const { status } = await request(app())
     .put(apiRoot + '/123456789098765432123456')
-    .send({ access_token: masterKey, titre: 'test', dateDebut: 'test', duree: 'test', theme: 'test' })
+    .send({ access_token: masterKey, titre: 'test', state: 'test', duree: 'test', theme: 'test' })
   expect(status).toBe(404)
 })
 

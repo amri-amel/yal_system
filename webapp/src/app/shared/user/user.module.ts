@@ -9,13 +9,15 @@ import { UserBadgeComponent } from './user-badge/user-badge.component';
 import { RouterModule } from '@angular/router';
 import { AdminUserBadgeComponent } from './admin-user-badge/admin-user-badge.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 
 @NgModule({
   declarations: [RegisterFormComponent, 
     LoginFormComponent, 
-    UserBadgeComponent, AdminUserBadgeComponent, ProfileComponent],
+    UserBadgeComponent, AdminUserBadgeComponent, ProfileComponent, UserListComponent, UpdateUserComponent],
   imports: [
     CommonModule,
     MaterialModule,

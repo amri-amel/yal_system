@@ -6,7 +6,7 @@ const formationSchema = new Schema({
   titre: {
     type: String
   },
-  dateDebut: {
+  state: {
     type: String
   },
   duree: {
@@ -39,7 +39,7 @@ formationSchema.methods = {
       // simple view
       id: this.id,
       titre: this.titre,
-      dateDebut: this.dateDebut,
+      state: this.state,
       duree: this.duree,
       theme: this.theme,
       createdAt: this.createdAt,

@@ -4,10 +4,11 @@ import { middleware as body } from 'bodymen'
 import { master } from '../../services/passport'
 import { create, index, show, update, destroy } from './controller'
 import { schema } from './model'
-export Formation, { schema } from './model'
+export Formation,{ schema } from './model'
+
 
 const router = new Router()
-const { titre, dateDebut, duree, theme } = schema.tree
+const { titre, state, duree, theme } = schema.tree
 
 /**
  * @api {post} /formations Create formation
@@ -16,7 +17,7 @@ const { titre, dateDebut, duree, theme } = schema.tree
  * @apiPermission master
  * @apiParam {String} access_token master access token.
  * @apiParam titre Formation's titre.
- * @apiParam dateDebut Formation's dateDebut.
+ * @apiParam state Formation's state.
  * @apiParam duree Formation's duree.
  * @apiParam theme Formation's theme.
  * @apiSuccess {Object} formation Formation's data.
@@ -26,7 +27,7 @@ const { titre, dateDebut, duree, theme } = schema.tree
  */
 router.post('/',
   master(),
-  body({ titre, dateDebut, duree, theme }),
+  body({ titre, state, duree, theme }),
   create)
 
 /**
@@ -68,7 +69,7 @@ router.get('/:id',
  * @apiPermission master
  * @apiParam {String} access_token master access token.
  * @apiParam titre Formation's titre.
- * @apiParam dateDebut Formation's dateDebut.
+ * @apiParam state Formation's state.
  * @apiParam duree Formation's duree.
  * @apiParam theme Formation's theme.
  * @apiSuccess {Object} formation Formation's data.
@@ -78,7 +79,7 @@ router.get('/:id',
  */
 router.put('/:id',
   master(),
-  body({ titre, dateDebut, duree, theme }),
+  body({ titre, state, duree, theme }),
   update)
 
 /**

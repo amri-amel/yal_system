@@ -11,6 +11,14 @@ import { CoachListComponent } from '../shared/coach/coach-list/coach-list.compon
 import { AddCoachComponent } from '../shared/coach/add-coach/add-coach.component';
 import { UpdateCoachComponent } from '../shared/coach/update-coach/update-coach.component';
 import { CoachResolver } from '../shared/coach/coach.resolver';
+import { AdminUsersPageComponent } from './layers/admin-users-page/admin-users-page.component';
+import { UserListComponent } from '../shared/user/user-list/user-list.component';
+import { RegisterFormComponent } from '../shared/user/register-form/register-form.component';
+import { UpdateUserComponent } from '../shared/user/update-user/update-user.component';
+import { AdminTrainingPageComponent } from './layers/admin-training-page/admin-training-page.component';
+import { ListFormationComponent } from '../shared/formations/list-formation/list-formation.component';
+import { AddFormationComponent } from '../shared/formations/add-formation/add-formation.component';
+import { UpdateFormationComponent } from '../shared/formations/update-formation/update-formation.component';
 
 
 
@@ -46,6 +54,28 @@ const routes: Routes = [
           }
         ]
       },
+      //trining
+      {
+        path:'training',
+        component: AdminTrainingPageComponent,
+        children:[
+          {
+            path:'',
+            component:ListFormationComponent
+          },
+          {
+            path:'add',
+            component: AddFormationComponent
+          },
+          {
+            path:'update/:id',
+            component: UpdateFormationComponent,
+           // resolve:{
+             // course:CourseResolver
+           // }
+          }
+        ]
+      },
       //coachs
       {
         path:'coaches',
@@ -65,6 +95,28 @@ const routes: Routes = [
             resolve:{
               coach:CoachResolver
             }
+          }
+        ]
+      },
+      //users
+      {
+        path:'users',
+        component: AdminUsersPageComponent,
+        children:[
+          {
+            path:'',
+            component:UserListComponent
+          },
+          {
+            path:'add',
+            component: RegisterFormComponent
+          },
+          {
+            path:'update/:id',
+            component: UpdateUserComponent,
+            //resolve:{
+             // coach:CoachResolver
+           // }
           }
         ]
       },
