@@ -1,14 +1,13 @@
-import { Router } from 'express'
-import { middleware as query } from 'querymen'
-import { middleware as body } from 'bodymen'
-import { master } from '../../services/passport'
-import { create, index, show, update, destroy } from './controller'
-import { schema } from './model'
-export Formation,{ schema } from './model'
+import { Router } from "express";
+import { middleware as query } from "querymen";
+import { middleware as body } from "bodymen";
+import { token } from "../../services/passport";
+import { create, index, show, update, destroy } from "./controller";
+import { schema } from "./model";
+export Formation, { schema } from "./model";
 
-
-const router = new Router()
-const { titre, state, duree, theme } = schema.tree
+const router = new Router();
+const { titre, state, duree, theme, courses, coach } = schema.tree;
 
 /**
  * @api {post} /formations Create formation
@@ -20,15 +19,19 @@ const { titre, state, duree, theme } = schema.tree
  * @apiParam state Formation's state.
  * @apiParam duree Formation's duree.
  * @apiParam theme Formation's theme.
+ * @apiParam courses Formation's courses.
+ * @apiParam coach Formation's coach.
  * @apiSuccess {Object} formation Formation's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Formation not found.
  * @apiError 401 master access only.
  */
-router.post('/',
-  master(),
-  body({ titre, state, duree, theme }),
-  create)
+router.post(
+  "/",
+  token({ required: true, roles: ["admin"] }),
+  body({ titre, state, duree, theme, courses, coach }),
+  create
+);
 
 /**
  * @api {get} /formations Retrieve formations
@@ -42,10 +45,7 @@ router.post('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 401 master access only.
  */
-router.get('/',
-  master(),
-  query(),
-  index)
+router.get("/", query(), index);
 
 /**
  * @api {get} /formations/:id Retrieve formation
@@ -58,9 +58,7 @@ router.get('/',
  * @apiError 404 Formation not found.
  * @apiError 401 master access only.
  */
-router.get('/:id',
-  master(),
-  show)
+router.get("/:id", show);
 
 /**
  * @api {put} /formations/:id Update formation
@@ -72,15 +70,15 @@ router.get('/:id',
  * @apiParam state Formation's state.
  * @apiParam duree Formation's duree.
  * @apiParam theme Formation's theme.
+ * @apiParam courses Formation's courses array.
  * @apiSuccess {Object} formation Formation's data.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Formation not found.
  * @apiError 401 master access only.
  */
-router.put('/:id',
-  master(),
-  body({ titre, state, duree, theme }),
-  update)
+router.put("/:id", 
+token({ required: true, roles: ['admin'] }), 
+body({ titre, state, duree, theme, courses, coach }), update);
 
 /**
  * @api {delete} /formations/:id Delete formation
@@ -92,8 +90,6 @@ router.put('/:id',
  * @apiError 404 Formation not found.
  * @apiError 401 master access only.
  */
-router.delete('/:id',
-  master(),
-  destroy)
+router.delete("/:id",  token({ required: true, roles: ['admin'] }),destroy);
 
-export default router
+export default router;

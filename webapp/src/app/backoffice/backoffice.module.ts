@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesModule } from '../shared/courses/courses.module';
 import { CoachModule } from '../shared/coach/coach.module';
+import { FormationsModule } from '../shared/formations/formations.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { CoachModule } from '../shared/coach/coach.module';
     ReactiveFormsModule,
     HttpClientModule,
     CoursesModule,
-    CoachModule
+    CoachModule,
+    FormationsModule
   ]
 })
 export class BackofficeModule { }

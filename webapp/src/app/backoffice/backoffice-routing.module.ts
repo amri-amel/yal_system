@@ -19,6 +19,7 @@ import { AdminTrainingPageComponent } from './layers/admin-training-page/admin-t
 import { ListFormationComponent } from '../shared/formations/list-formation/list-formation.component';
 import { AddFormationComponent } from '../shared/formations/add-formation/add-formation.component';
 import { UpdateFormationComponent } from '../shared/formations/update-formation/update-formation.component';
+import { AdminListeFormationComponent } from '../shared/formations/admin/admin-liste-formation/admin-liste-formation.component';
 
 
 
@@ -61,7 +62,7 @@ const routes: Routes = [
         children:[
           {
             path:'',
-            component:ListFormationComponent
+            component:AdminListeFormationComponent
           },
           {
             path:'add',

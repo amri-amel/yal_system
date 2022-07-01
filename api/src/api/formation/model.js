@@ -1,5 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
-
+import mongooseKeywords from 'mongoose-keywords'
+import User from '../user/model';
+import Course from '../course/model';
 
 
 const formationSchema = new Schema({
@@ -16,15 +18,13 @@ const formationSchema = new Schema({
     type: String
   },
   courses: [{
-    courseId: {
       type: Schema.Types.ObjectId,
       ref: 'Course'
-    }
   }],
   coach: {
     type: mongoose.Types.ObjectId,
     ref: 'User'
-  }
+  },
 }, {
   timestamps: true,
   toJSON: {
@@ -42,6 +42,8 @@ formationSchema.methods = {
       state: this.state,
       duree: this.duree,
       theme: this.theme,
+      courses:this.courses,
+      coach:this.coach,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -52,6 +54,8 @@ formationSchema.methods = {
     } : view
   }
 }
+
+formationSchema.plugin(mongooseKeywords, { paths: ['titre', 'theme', 'duree'] })
 
 const model = mongoose.model('Formation', formationSchema)
 

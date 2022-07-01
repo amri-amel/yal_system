@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { AddFormationComponent } from './add-formation/add-formation.component';
 import { ListFormationComponent } from './list-formation/list-formation.component';
 import { UpdateFormationComponent } from './update-formation/update-formation.component';
+import { AdminListeFormationComponent } from './admin/admin-liste-formation/admin-liste-formation.component';
+import { AdminPlanifierFormationComponent } from './admin/admin-planifier-formation/admin-planifier-formation.component';
+import { MaterialModule } from '../material/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,10 +15,15 @@ import { UpdateFormationComponent } from './update-formation/update-formation.co
   declarations: [
     AddFormationComponent,
     ListFormationComponent,
-    UpdateFormationComponent
+    UpdateFormationComponent,
+    AdminListeFormationComponent,
+    AdminPlanifierFormationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class FormationsModule { }
