@@ -31,6 +31,12 @@ export class CoursesService {
     ) as Observable<any>
   }
 
+  getAllCourses():Observable<any>{
+    return this.http.get(`${environment.API_URL}/courses`,
+      {'headers': headers}
+    ) as Observable<any>
+  }
+
   removeCourse(id:string):Observable<any>{
     return this.http.delete(`${environment.API_URL}/courses/${id}`,{ 'headers': headers }) as Observable<any>
   }

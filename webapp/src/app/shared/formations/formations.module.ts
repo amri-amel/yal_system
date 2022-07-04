@@ -7,7 +7,10 @@ import { AdminListeFormationComponent } from './admin/admin-liste-formation/admi
 import { AdminPlanifierFormationComponent } from './admin/admin-planifier-formation/admin-planifier-formation.component';
 import { MaterialModule } from '../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+
 
 
 
@@ -23,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    NgSelectModule
   ]
 })
 export class FormationsModule { }

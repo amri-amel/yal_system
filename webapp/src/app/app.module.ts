@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AngularEditorModule } from '@kolkov/angular-editor';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,8 @@ import { ConfirmationDialogComponent } from './shared/confirmation-dialog/confir
 import { NgxUploaderModule } from 'ngx-uploader';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { NotfoundPageComponent } from './shared/notfound-page/notfound-page.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 
 
@@ -33,7 +35,8 @@ import { NotfoundPageComponent } from './shared/notfound-page/notfound-page.comp
     HttpClientModule,
     FormsModule,
     NgxUploaderModule,
-    AngularEditorModule
+    AngularEditorModule,
+    FormsModule
   ],
   providers: [
     {
