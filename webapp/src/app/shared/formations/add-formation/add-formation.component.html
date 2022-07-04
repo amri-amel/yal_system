@@ -10,8 +10,8 @@
           <input
             type="text"
             placeholder="title"
-            id="title"
             class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
+            formControlName="titre"
           />
         </div>
 
@@ -20,7 +20,7 @@
           <input
             type="text"
             placeholder="Duree"
-            id="duree"
+            formControlName="duree"
             class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
           />
         </div>
@@ -29,13 +29,13 @@
           <input
             type="text"
             placeholder="theme"
-            id="theme"
+            formControlName="theme"
             class="ml-2 outline-none py-1 px-2 text-md border-2 rounded-md"
           />
         </div>
 
         <!--courses-->
-        <ng-select
+        <ng-select  
           bindLabel="course"
           placeholder="Select an attachment Course"
           [searchable]="true"
@@ -64,12 +64,45 @@
         >
           Courses Required
         </mat-error>
-        <button
-          class="px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600"
-        >
-          SAVE
-        </button>
+
+           <!--Coaches-->
+           <ng-select 
+           bindLabel="coach"
+           placeholder="Select a Coach for this Training"
+           [searchable]="true"
+           formControlName="coach"
+           [virtualScroll]="true"
+           required
+         >
+           <ng-option
+             [value]="coach"
+             [disabled]=""
+             *ngFor="let coach of coachList"
+           >
+             <div class="flex flex-row w-full px-3 py-2 shadow-md">
+               <span class="w-full px-2 py-2 font-mono">
+                 {{ coach?.fullName }}</span
+               >
+               <span class="w-full px-2 py-2 font-mono">
+                {{ coach?.speciality }}</span
+              >
+             </div>
+           </ng-option>
+         </ng-select>
+         <mat-error
+           *ngIf="formationForm.controls['coach'].hasError('required')"
+         >
+           Coach Required
+         </mat-error>
+
+        <br>
       </div>
     </div>
   </div>
 </form>
+
+<button
+  class="px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600"
+ (click)="postFormation()">
+  SAVE
+</button>

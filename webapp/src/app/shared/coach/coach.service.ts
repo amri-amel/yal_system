@@ -34,6 +34,12 @@ export class CoachService {
     ) as Observable<any>
   }
 
+  getAllCoaches():Observable<any>{
+    return this.http.get(`${environment.API_URL}/coaches`,
+      { 'headers': headers }
+    ) as Observable<any>
+  }
+
   removeCoach(id:string):Observable<any>{
     return this.http.delete(`${environment.API_URL}/coaches/${id}`,{ 'headers': headers }) as Observable<any>
   }

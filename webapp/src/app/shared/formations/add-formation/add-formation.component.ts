@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { Subscription } from 'rxjs';
+import { ICoach } from '../../coach/coach.model';
+import { CoachService } from '../../coach/coach.service';
 import { ICourse } from '../../courses/course.model';
 import { CoursesService } from '../../courses/courses.service';
 
@@ -11,38 +13,55 @@ import { CoursesService } from '../../courses/courses.service';
   templateUrl: './add-formation.component.html',
   styleUrls: ['./add-formation.component.scss']
 })
-export class AddFormationComponent implements OnInit {
-  formationForm:FormGroup;
+export class AddFormationComponent implements OnInit,OnDestroy {
   coursesList:ICourse[];
-  coursesSubscription:Subscription
+  coachList:ICoach[];
+  coursesSubscription:Subscription;
+  couachSubscription:Subscription;
+  
+  formationForm:FormGroup=this.fb.group({
+    titre:['',Validators.required],
+    theme:['',Validators.required],
+    duree:['',Validators.required],
+    courses:[[],Validators.required],
+    coach:['',Validators.required]
+  })
 
-  constructor( 
-    private config: NgSelectConfig, 
+  constructor(  
     private fb:FormBuilder, 
-    private coursesServices:CoursesService
-    ) {
-    this.config.notFoundText = 'Course not found';
-    this.config.appendTo = 'body';
-    this.config.bindValue = 'value';
-    this.formationForm=this.fb.group({
-      titre:['',Validators.required],
-      theme:['',Validators.required],
-      duree:['',Validators.required],
-      courses:[[]],
-      coach:[null]
-    })
-   }
-
-  ngOnInit(): void {
-    this.coursesSubscription=this.coursesServices.getAllCourses().subscribe({
-      next:(data:any)=>{
-        let course=data['rows'];
-        this.coursesList=course;
-      },
+    private coursesServices:CoursesService,
+    private coachService:CoachService
+    ) { }
+   
+   ngOnInit(): void {
+     this.coursesSubscription=this.coursesServices.getAllCourses().subscribe({
+       next:(data:any)=>{
+         let course=data['rows'];
+         this.coursesList=course;
+        },
       error:()=>{
 
       }
     })
+
+    this.couachSubscription=this.coachService.getAllCoaches().subscribe({
+      next:(data:any)=>{
+        let coaches=data['rows'];
+        console.log(coaches)
+        this.coachList=coaches;
+       },
+     error:()=>{
+
+     }
+   })
   }
 
+  postFormation(){
+    console.log(this.formationForm.value)
+  }
+  
+  ngOnDestroy(): void {
+   this.coursesSubscription.unsubscribe();
+   this.couachSubscription.unsubscribe();
+  }
 }
