@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 import mongooseKeywords from 'mongoose-keywords'
-import User from '../user/model';
+import Coach from '../coach/model';
 import Course from '../course/model';
 
 
@@ -23,7 +23,7 @@ const formationSchema = new Schema({
   }],
   coach: {
     type: mongoose.Types.ObjectId,
-    ref: 'User'
+    ref: 'Coach'
   },
 }, {
   timestamps: true,

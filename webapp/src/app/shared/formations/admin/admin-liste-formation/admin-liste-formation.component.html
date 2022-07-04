@@ -21,7 +21,7 @@
           <td mat-cell *matCellDef="let row">{{row.titre}}</td>
         </ng-container>
     
-        <!-- Description Column -->
+        <!-- theme Column -->
         <ng-container matColumnDef="theme">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Theme</th>
           <td mat-cell *matCellDef="let row">{{row.theme}}</td>
@@ -36,11 +36,11 @@
     
 
     
-        <!-- category column -->
+        <!-- coach column -->
         <ng-container matColumnDef="coach">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Coach</th>
           <td mat-cell *matCellDef="let row">
-            <span>{{row?.coach?.fullname}}</span>
+            <span>{{row?.coach?.fullName}}</span>
         </td>
         </ng-container>
     
