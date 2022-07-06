@@ -15,6 +15,7 @@ import { UserModule } from '../shared/user/user.module';
 import { HomePageComponent } from './layers/home-page/home-page.component';
 import { CardComponent } from '../shared/card/card.component';
 import { FormationPageComponent } from './layers/formation-page/formation-page.component';
+import { CoursesModule } from '../shared/courses/courses.module';
 
 
 
@@ -40,6 +41,7 @@ import { FormationPageComponent } from './layers/formation-page/formation-page.c
     CommonModule,
     FrontofficeRoutingModule,
     UserModule,
+    CoursesModule
     
   ]
 })

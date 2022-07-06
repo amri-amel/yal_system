@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<div class="flex flex-row flex-wrap">
+  <div *ngFor="let course of coursesList" class=" px-2 py-3">
+    <app-course-card [course]="course"></app-course-card>
+  </div>
+</div>

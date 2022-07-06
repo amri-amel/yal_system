@@ -15,6 +15,7 @@ import { AddChapterFormComponent } from './update-course/add-chapter-form/add-ch
 import { ChaptersListComponent } from './update-course/chapters-list/chapters-list.component';
 import { UploadRessourceComponent } from './upload-ressource/upload-ressource.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { CourseCardComponent } from './course-card/course-card.component';
 
 
 
@@ -28,7 +29,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     UploadCourseChapitresComponent,
     AddChapterFormComponent,
     ChaptersListComponent,
-    UploadRessourceComponent
+    UploadRessourceComponent,
+    CourseCardComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     AddChapterFormComponent,
     ChaptersListComponent,
     UploadRessourceComponent,
-    AngularEditorModule
+    AngularEditorModule,
+    CourseCardComponent
   ]
 })
 export class CoursesModule { }

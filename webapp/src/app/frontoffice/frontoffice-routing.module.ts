@@ -46,7 +46,14 @@ const routes: Routes = [
         ]
       },
 
-     
+     //Courses
+     {
+      path: 'courses',
+      component: CoursesPageComponent,
+      
+    },
+
+   
       {
         path: 'training-session',
         component: TrainingsessionPageComponent,
