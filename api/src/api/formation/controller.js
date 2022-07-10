@@ -9,7 +9,7 @@ export const create = ({ bodymen: { body } }, res, next) =>
 
 export const index = ({ querymen: { query, select, cursor } }, res, next) =>
   Formation.count(query)
-    .then(count => Formation.find(query, select, cursor).populate({path:'courses'}).populate({path:'coach'})
+    .then(count => Formation.find(query, select, cursor)
       .then((formations) => ({
         count,
         rows: formations.map((formation) => formation.view())
@@ -19,7 +19,7 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
     .catch(next)
 
 export const show = ({ params }, res, next) =>
-  Formation.findById(params.id)
+  Formation.findById(params.id).populate({path:'courses'}).populate({path:'coach'})
     .then(notFound(res))
     .then((formation) => formation ? formation.view() : null)
     .then(success(res))
