@@ -1,4 +1,5 @@
 export interface ICoach{
+    id?:string
     fullName: string;
     email: string;
     speciality: string;

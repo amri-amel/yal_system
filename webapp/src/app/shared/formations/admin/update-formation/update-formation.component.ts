@@ -97,13 +97,18 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
 
      
   postFormation(){
+
+    // TODO: to fix put 
+    
+      this.formationForm.patchValue({coach:this.formationForm.value.coach.id})
       let formation = this.formationForm.value;
-      formation.courses=this.coursesList;
+      formation.courses=this.coursesList.map(c=>c.id);
 
     this.formationService.updateFormation(this.currentFormationId, formation).subscribe({
       next: (data) => {
         this.router.navigate(['/admin/formations']);
         this.snackBar.open('training Updated Successfully', 'x');
+        this.router.navigate(['/admin/training'])
       },
       error: (error) => {
         this.snackBar.open('Fail to update training', 'x');
@@ -112,6 +117,11 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
       complete: () => {},
     });
   }
+
+  cancel():void{
+    this.router.navigate(['/admin/training'])
+  }
+
   ngOnDestroy(): void {
     this.coursesSubscription.unsubscribe();
     this.couachSubscription.unsubscribe();
