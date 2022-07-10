@@ -18,44 +18,30 @@ const routes: Routes = [
   {
     path: '', component: GuestWrapComponent,
     children: [
-     
-     
       {
         path: 'home',
         component: LandpageComponent,
       },
-
       {
         path: 'formation',
         component: FormationPageComponent,
-        children:[
+        children: [
           {
-            path:'',
-            component:ListFormationComponent
+            path: '',
+            component: ListFormationComponent
           },
-          {
-            path:'add',
-            component: AddFormationComponent
-          },
-          {
-            path:'update/:id',
-            component: UpdateFormationComponent
-           // resolve:{
-            //  course:CourseResolver
-            }
-          
-          
+
         ]
       },
 
-     //Courses
-     {
-      path: 'courses',
-      component: CoursesPageComponent,
-      
-    },
+      //Courses
+      {
+        path: 'courses',
+        component: CoursesPageComponent,
 
-   
+      },
+
+
       {
         path: 'training-session',
         component: TrainingsessionPageComponent,
@@ -80,8 +66,12 @@ const routes: Routes = [
         path: ' Front/**',
         component: NotfoundPageComponent,
         //  pathMatch: 'full'
+      },
+      {
+        path: "**", redirectTo: "home", pathMatch: "full"
       }
     ],
+    
 
   }
 ];
