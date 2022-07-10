@@ -21,6 +21,7 @@ import { UpdateFormationComponent } from '../shared/formations/admin/update-form
 import { AdminListeFormationComponent } from '../shared/formations/admin/admin-liste-formation/admin-liste-formation.component';
 import { AddFormationComponent } from '../shared/formations/admin/add-formation/add-formation.component';
 import { FormationResolver } from '../shared/formations/formation.resolver';
+import { AdminNavigationComponent } from './layers/admin-navigation/admin-navigation.component';
 
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        component:AdminCoursesPageComponent
+        component:AdminNavigationComponent
 
       },
       {
