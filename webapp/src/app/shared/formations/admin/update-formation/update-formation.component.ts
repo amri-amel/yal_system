@@ -21,10 +21,13 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
   coursesSubscription:Subscription;
   couachSubscription:Subscription;
   formationServiceSubscription:Subscription;
+
   currentFormationId : string='';
-  public ngSelect?: any;
+
   coursesList:ICourse[];
   coachList:ICoach[];
+  ngSelect?:any
+
   
   formationForm:FormGroup=this.fb.group({
     titre:['',Validators.required],
@@ -44,8 +47,7 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog
-    )
-   { }
+    ){ }
   
 
   
@@ -54,26 +56,24 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.route.data.subscribe({
       next: (data) => {
+        console.log(data)
         let formation=data['formation'];
         this.currentFormationId = formation.id;
         this.formationForm.patchValue({
           titre:formation['titre'],
           theme:formation['theme'],
           duree:formation['duree'],
-          
-        })
+        });
 
-        this.coursesList=formation['courses'];
-        this.coachList=formation['coaches'];
-   
-
+        this.ngSelect=formation['coach'].fullName
        },
        error: (error) => console.log(error),
     });
+
     this.coursesSubscription=this.coursesServices.getAllCourses().subscribe({
       next:(data:any)=>{
-        let course=data['rows'];
-        this.coursesList=course;
+        let courses=data['rows'];
+        this.coursesList=courses
        },
      error:()=>{
 
@@ -83,8 +83,8 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
    this.couachSubscription=this.coachService.getAllCoaches().subscribe({
      next:(data:any)=>{
        let coaches=data['rows'];
-       console.log(coaches)
        this.coachList=coaches;
+      
       },
     error:()=>{
 
@@ -97,14 +97,18 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
 
      
   postFormation(){
+
+    // TODO: to fix put 
     
+      this.formationForm.patchValue({coach:this.formationForm.value.coach.id})
       let formation = this.formationForm.value;
-      formation.courses=this.coursesList;
+      formation.courses=this.coursesList.map(c=>c.id);
 
     this.formationService.updateFormation(this.currentFormationId, formation).subscribe({
       next: (data) => {
         this.router.navigate(['/admin/formations']);
         this.snackBar.open('training Updated Successfully', 'x');
+        this.router.navigate(['/admin/training'])
       },
       error: (error) => {
         this.snackBar.open('Fail to update training', 'x');
@@ -113,6 +117,11 @@ export class UpdateFormationComponent implements OnInit,OnDestroy {
       complete: () => {},
     });
   }
+
+  cancel():void{
+    this.router.navigate(['/admin/training'])
+  }
+
   ngOnDestroy(): void {
     this.coursesSubscription.unsubscribe();
     this.couachSubscription.unsubscribe();
