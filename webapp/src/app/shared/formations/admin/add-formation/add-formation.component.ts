@@ -3,11 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { Subscription } from 'rxjs';
-import { ICoach } from '../../coach/coach.model';
-import { CoachService } from '../../coach/coach.service';
-import { ICourse } from '../../courses/course.model';
-import { CoursesService } from '../../courses/courses.service';
-import { FormationService } from '../formation.service';
+import { ICoach } from 'src/app/shared/coach/coach.model';
+import { CoachService } from 'src/app/shared/coach/coach.service';
+import { ICourse } from 'src/app/shared/courses/course.model';
+import { CoursesService } from 'src/app/shared/courses/courses.service';
+import { FormationService } from '../../formation.service';
+
 
 
 @Component({

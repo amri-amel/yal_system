@@ -100,6 +100,7 @@ export class AdminListeFormationComponent implements OnInit {
     return courses.map(c=>c.title).join(';')
 
   }
+ 
 
 
 }

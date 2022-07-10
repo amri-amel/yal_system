@@ -78,7 +78,7 @@ router.get("/:id", show);
  */
 router.put("/:id", 
 token({ required: true, roles: ['admin'] }), 
-body({ titre, state, duree, theme, courses, coach }), update);
+body({ titre,  duree, theme, courses, coach }), update);
 
 /**
  * @api {delete} /formations/:id Delete formation

@@ -51,6 +51,7 @@ export class UpdateCourseComponent implements OnInit {
         this.currentCourseId = course.id;
         this.currentPhotoUrl = course.cover ?? './assets/defaultCourse.png';
         this.courseForm.patchValue({
+          
           title: course['title'],
           description: course['description'],
           author: course['author'],

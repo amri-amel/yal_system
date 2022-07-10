@@ -17,9 +17,10 @@ import { RegisterFormComponent } from '../shared/user/register-form/register-for
 import { UpdateUserComponent } from '../shared/user/update-user/update-user.component';
 import { AdminTrainingPageComponent } from './layers/admin-training-page/admin-training-page.component';
 import { ListFormationComponent } from '../shared/formations/list-formation/list-formation.component';
-import { AddFormationComponent } from '../shared/formations/add-formation/add-formation.component';
-import { UpdateFormationComponent } from '../shared/formations/update-formation/update-formation.component';
+import { UpdateFormationComponent } from '../shared/formations/admin/update-formation/update-formation.component';
 import { AdminListeFormationComponent } from '../shared/formations/admin/admin-liste-formation/admin-liste-formation.component';
+import { AddFormationComponent } from '../shared/formations/admin/add-formation/add-formation.component';
+import { FormationResolver } from '../shared/formations/formation.resolver';
 
 
 
@@ -55,7 +56,7 @@ const routes: Routes = [
           }
         ]
       },
-      //trining
+      //training
       {
         path:'training',
         component: AdminTrainingPageComponent,
@@ -71,9 +72,9 @@ const routes: Routes = [
           {
             path:'update/:id',
             component: UpdateFormationComponent,
-           // resolve:{
-             // course:CourseResolver
-           // }
+           resolve:{
+              formation:FormationResolver
+           }
           }
         ]
       },
