@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { IFormation } from '../formation.model';
+import { FormationService } from '../formation.service';
 
 @Component({
   selector: 'app-list-formation',
@@ -6,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-formation.component.scss']
 })
 export class ListFormationComponent implements OnInit {
-
-  constructor() { }
+   formationList:IFormation[]=[]
+  constructor(private formationService:FormationService, private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.formationService.getAllFormations().subscribe({
+      next: (data:any)=>{
+        this.formationList=data['rows'];
+        console.log(this.formationList)
+      },
+      error: (error:any)=>{
+              this.snackBar.open('Error Occured','x')
+
+      }
+    })
   }
 
 }

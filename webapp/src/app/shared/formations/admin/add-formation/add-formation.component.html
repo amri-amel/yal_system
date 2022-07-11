@@ -102,8 +102,16 @@
   </div>
 </form>
 
-<button
-  class="px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600"
- (click)="postFormation()">
-  SAVE
+<div class="flex flex-row">
+  <button
+  class="px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-red-700"
+ (click)="cancel()">
+  Cancel
 </button>
+ 
+  <button
+    class="px-6 py-2 mx-auto block rounded-md text-lg font-semibold text-indigo-100 bg-indigo-600"
+   (click)="postFormation()">
+    SAVE
+  </button>
+</div>

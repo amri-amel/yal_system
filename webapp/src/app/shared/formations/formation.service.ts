@@ -26,6 +26,10 @@ export class FormationService {
       }
     ) as Observable<any>
   }
+  
+getAllFormations():Observable<any>{
+    return this.http.get(`${environment.API_URL}/formations`) as Observable<any>
+  }
 
   removeFormation(id:string):Observable<any>{
     return this.http.delete(`${environment.API_URL}/formations/${id}`) as Observable<any>

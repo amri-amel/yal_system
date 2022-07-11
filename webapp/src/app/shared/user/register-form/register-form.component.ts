@@ -45,6 +45,7 @@ export class RegisterFormComponent {
         {
           next:data => {
           this.snackBar.open("welcome !!!you have been registered successfully ", 'Close')
+          this.router.navigate(['/front/home'])
         },
         error: error => {
           this.snackBar.open("Echec :( langeur du mot de passe doit etre sup à 6  ", 'Close')

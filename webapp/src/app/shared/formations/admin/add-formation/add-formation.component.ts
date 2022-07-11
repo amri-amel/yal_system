@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { Subscription } from 'rxjs';
 import { ICoach } from 'src/app/shared/coach/coach.model';
@@ -36,7 +37,8 @@ export class AddFormationComponent implements OnInit,OnDestroy {
     private coursesServices:CoursesService,
     private coachService:CoachService,
     private formationService:FormationService,
-    private matSnackBar:MatSnackBar
+    private matSnackBar:MatSnackBar,
+  private router :Router
     ) { }
    
    ngOnInit(): void {
@@ -77,6 +79,7 @@ export class AddFormationComponent implements OnInit,OnDestroy {
       .addFormation(formationBody).subscribe({
         next: (result:any)=>{
           this.matSnackBar.open('Traning Session Added Successfully','x')
+          this.router.navigate(["/admin/training"])
         },
         error: (error:any)=>{
           this.matSnackBar.open('Sory Error occured When saving Training Session','x')
@@ -84,6 +87,10 @@ export class AddFormationComponent implements OnInit,OnDestroy {
       })
   }
   
+  cancel(){
+    this.router.navigate(["/admin/training"])
+  }
+
   ngOnDestroy(): void {
    this.coursesSubscription.unsubscribe();
    this.couachSubscription.unsubscribe();
