@@ -47,7 +47,7 @@ export class RegisterFormComponent {
           this.snackBar.open("welcome !!!you have been registered successfully ", 'Close')
         },
         error: error => {
-          this.snackBar.open("Echec :( ", 'Close')
+          this.snackBar.open("Echec :( langeur du mot de passe doit etre sup à 6  ", 'Close')
         },
         complete:()=>{
 
