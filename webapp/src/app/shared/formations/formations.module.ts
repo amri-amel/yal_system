@@ -30,6 +30,9 @@ import { AddFormationComponent } from './admin/add-formation/add-formation.compo
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule
+  ],
+  exports:[
+    ListFormationComponent
   ]
 })
 export class FormationsModule { }

@@ -16,6 +16,7 @@ import { HomePageComponent } from './layers/home-page/home-page.component';
 import { CardComponent } from '../shared/card/card.component';
 import { FormationPageComponent } from './layers/formation-page/formation-page.component';
 import { CoursesModule } from '../shared/courses/courses.module';
+import { FormationsModule } from '../shared/formations/formations.module';
 
 
 
@@ -41,8 +42,10 @@ import { CoursesModule } from '../shared/courses/courses.module';
     CommonModule,
     FrontofficeRoutingModule,
     UserModule,
-    CoursesModule
+    CoursesModule,
+    FormationsModule
     
-  ]
+  ],
+  exports:[]
 })
 export class FrontofficeModule { }
