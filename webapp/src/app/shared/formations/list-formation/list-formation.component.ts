@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 import { IFormation } from '../formation.model';
 import { FormationService } from '../formation.service';
 
@@ -23,6 +24,10 @@ export class ListFormationComponent implements OnInit {
 
       }
     })
+  }
+
+  getCover(url){
+    return url ? `${environment.API_URL}/${url}` : './assets/session.jpg'  
   }
 
 }

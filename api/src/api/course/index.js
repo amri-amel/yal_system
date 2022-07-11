@@ -118,7 +118,7 @@ addChapter)
  * @apiError 401 master access only.
  */
  router.put('/cover/:id',
- token({ required: true, roles: ['admin'] }),
+// token({ required: true, roles: ['admin'] }),
  uploadCourseCover)
 
 
