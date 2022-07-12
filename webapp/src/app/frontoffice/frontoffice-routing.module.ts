@@ -13,6 +13,7 @@ import { HomePageComponent } from './layers/home-page/home-page.component';
 import { LandpageComponent } from './layers/landpage/landpage.component';
 import { TrainingsessionPageComponent } from './layers/trainingsession-page/trainingsession-page.component';
 import { AddFormationComponent } from '../shared/formations/admin/add-formation/add-formation.component';
+import { ProfileComponent } from '../shared/user/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
       {
         path: 'training-session',
         component: TrainingsessionPageComponent,
+
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
 
       },
       {

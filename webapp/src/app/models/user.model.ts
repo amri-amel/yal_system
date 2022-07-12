@@ -5,6 +5,6 @@ export interface IUser {
     email: string;
     password?:string;
     role:string;
-    avatar_url?: string;
+    picture?: string;
     token: string;
 }

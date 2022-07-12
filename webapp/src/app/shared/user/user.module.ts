@@ -11,13 +11,14 @@ import { AdminUserBadgeComponent } from './admin-user-badge/admin-user-badge.com
 import { ProfileComponent } from './profile/profile.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { UpdateUserRoleComponent } from './update-user-role/update-user-role.component';
 
 
 
 @NgModule({
   declarations: [RegisterFormComponent, 
     LoginFormComponent, 
-    UserBadgeComponent, AdminUserBadgeComponent, ProfileComponent, UserListComponent, UpdateUserComponent],
+    UserBadgeComponent, AdminUserBadgeComponent, ProfileComponent, UserListComponent, UpdateUserComponent, UpdateUserRoleComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -28,7 +29,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
   exports:[RegisterFormComponent, 
     LoginFormComponent,
     UserBadgeComponent,
-    AdminUserBadgeComponent
+    AdminUserBadgeComponent,
+    UpdateUserRoleComponent,
+    ProfileComponent
   ]
 })
 export class UserModule { }
