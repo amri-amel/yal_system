@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/models/user.model';
@@ -38,5 +38,18 @@ export class UserService {
 
   getUserById(id:string):Observable<any>{
     return this.httpClient.get(`${environment.API_URL}/users/user/${id}`) as Observable<any>;
+  }
+
+  
+  findUser(filter = '',pageNumber=1,pageSize=10,sortField='email' ):Observable<any>{
+    return this.httpClient.get(`${environment.API_URL}/users`,
+      {
+        params:new HttpParams()
+          .set('q', filter)
+          .set('page', pageNumber.toString())
+          .set('limit', pageSize.toString())
+          .set('sort', sortField),
+      }
+    ) as Observable<any>
   }
 }

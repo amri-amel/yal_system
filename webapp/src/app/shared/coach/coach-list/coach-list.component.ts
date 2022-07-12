@@ -51,7 +51,7 @@ export class CoachListComponent implements OnInit, AfterViewInit {
         distinctUntilChanged(),
         tap(() => {
           this.paginator.pageIndex = 0;
-          this.loadCoachPage
+          this.loadCoachPage()
         })
       )
       .subscribe();

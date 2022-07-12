@@ -1,44 +1,75 @@
 <div class="flex flex-col justify-center w-full px-1 py-1 mx-1 my-1 align-center">
-  <h2 class="font-extrabold text-center text-blue-900 underline text-shadow-md decoration-solid">Users's List</h2>
+  <h2 class="font-extrabold text-center text-gray-800 underline text-shadow-md decoration-solid">User's List</h2>
 
   <div  class="page" fxLayoutGap>
+  
     <div class="px-2 py-2 m-1">
-      <button mat-raised-button color="primary">Add New One</button>
-      <br>
-<div class="flex flex-col">
-  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-              <th scope="col" class="relative px-6 py-3">
-                <span class="sr-only">Edit</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jane Cooper</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Regional Paradigm Technician</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">jane.cooper@example.com</td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Admin</td>
-              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-              </td>
-            </tr>
+      <mat-form-field>
+        <input matInput placeholder="Search a User" #queryField>
+      </mat-form-field>
+      <div flxLayout="column" fxLayoutAlign="space-between start" class="page">
+  <div class="mat-elevation-z8">
+    <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+    <table mat-table class="dress-table full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+      <!--  User Name -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+        
+      </ng-container>
+   
+    
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{row.email}}</td>
+      </ng-container>
+  
+      <!-- Spaciality Column -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+        <td mat-cell *matCellDef="let row">{{row.role}}</td>
+      </ng-container>
+  
+  
+      
+       <!-- Address Avatar -->
+       <ng-container matColumnDef="avatar">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Avatar</th>
+          <td mat-cell *matCellDef="let row">
+            <img class="w-8 h-8 mx-1 rounded-full pc-2" [src]="row?.picture" alt="avatar">
+          </td>
+        </ng-container>
+  
+    
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <span class="actions" (click)="updateUserRole(row.id)">
+            <mat-icon color="primary">edit</mat-icon>
+            <span>Update Role</span>
+          </span>
 
-            <!-- More people... -->
-          </tbody>
-        </table>
-      </div>
-    </div>
+        </td>
+      </ng-container>
+  
+  
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator #paginator
+        [length]="dataSource?.userCountSubject?.getValue()"
+        [pageIndex]="0"
+        [pageSize]="10"
+        [pageSizeOptions]="[10]"
+        aria-label="Select page">
+    </mat-paginator>
   </div>
-</div>
-    </div>
-</div>
+  </div>
 </div>
