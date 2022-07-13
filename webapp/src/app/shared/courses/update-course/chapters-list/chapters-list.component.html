@@ -21,10 +21,11 @@
 
 
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" scope="row"
-      *ngFor="let chapter of chapters;let i=index">
+      *ngFor="let chapter of (chapters$ | async);let i=index">
       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{chapter.title}}</td>
       <td style ="max-width:150px; " class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><span [innerHTML]="chapter.content"></span></td>
-      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Delete</td>
+      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 cursor-pointer border-dark-50" 
+      (click)="removeChapter(chapter?._id)">Delete</td>
      
 
          

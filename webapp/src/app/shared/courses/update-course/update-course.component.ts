@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CoursesService } from '../courses.service';
 import { AddChapterFormComponent } from './add-chapter-form/add-chapter-form.component';
+import { UpdateCourseStateService } from './update-course.state.service';
 
 @Component({
   selector: 'app-update-cource',
@@ -15,7 +16,7 @@ import { AddChapterFormComponent } from './add-chapter-form/add-chapter-form.com
 export class UpdateCourseComponent implements OnInit {
   currentCourseId: string = '';
   currentPhotoUrl: string = '';
-  chapters:any;
+
 
 
   public ngSelect?: any;
@@ -41,7 +42,8 @@ export class UpdateCourseComponent implements OnInit {
     private router: Router,
     private coursesService: CoursesService,
     private snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public updateCourseStateService:UpdateCourseStateService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +60,7 @@ export class UpdateCourseComponent implements OnInit {
           category: course['category'],
           isFeatured: course['isFeatured'],
         });
-        this.chapters=course['chapters']
+        this.updateCourseStateService.loadChapters(course['chapters'])
         this.ngSelect = course.category;
       },
       error: (error) => console.log(error),
@@ -71,7 +73,7 @@ export class UpdateCourseComponent implements OnInit {
 
   onSubmit(): void {
     let course = this.courseForm.value;
-    course.chapters=this.chapters;
+    this.updateCourseStateService.getChapters().subscribe(chapters=>course.chapters=chapters);
 
     this.coursesService.updateCourse(this.currentCourseId, course).subscribe({
       next: (data) => {
@@ -110,7 +112,7 @@ export class UpdateCourseComponent implements OnInit {
     let dialogRef = this.dialog.open(AddChapterFormComponent, dialogConfig);
     dialogRef.afterClosed().subscribe({
       next:(result:any) => {
-       this.chapters.push(result.data)
+       this.updateCourseStateService.addChapter(result.data)
     }
   });
   }

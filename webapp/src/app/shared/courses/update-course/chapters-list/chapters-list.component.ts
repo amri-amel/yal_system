@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IChapter, UpdateCourseStateService } from '../update-course.state.service';
 
 @Component({
   selector: 'app-chapters-list',
@@ -6,12 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./chapters-list.component.scss']
 })
 export class ChaptersListComponent implements OnInit {
-  @Input('chapters') chapters:any;
+  chapters$:Observable<IChapter[]>
   
-  constructor() { }
+  constructor(private updateCoureseStateService:UpdateCourseStateService) { }
 
   ngOnInit(): void {
-    
+    this.chapters$=this.updateCoureseStateService.getChapters()
   }
 
+  removeChapter(id:string){
+    this.updateCoureseStateService.removeChapter(id);
+  }
 }
