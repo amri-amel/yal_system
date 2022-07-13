@@ -1,4 +1,6 @@
-<div class="flex flex-row flex-wrap">
+<h2 class="text-teal-700 text-center  " style="font-size: 3.5em ; margin-bottom: 2em;margin-top: 2em;">Nos Cours</h2>
+
+<div class="flex flex-wrap justify-center mt-8">
   <div *ngFor="let course of coursesList" class=" px-2 py-3">
     <app-course-card [course]="course"></app-course-card>
   </div>
