@@ -1,0 +1,45 @@
+<div class="px-3">
+  <div class="bg-white">
+    <section aria-labelledby="features-heading" class="relative">
+      <div
+        class="aspect-w-3 aspect-h-2 overflow-hidden sm:aspect-w-5 lg:aspect-none lg:absolute lg:w-1/2 lg:h-full lg:pr-4 xl:pr-16"
+      >
+        <img
+          [src]="getCorseCover(currentCourse?.cover)"
+          alt="course-cover"
+          class="h-full w-full object-center object-cover lg:h-full lg:w-full px-2 py-3"
+        />
+      </div>
+      <div
+        class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 sm:px-6 lg:max-w-7xl lg:pt-32 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8"
+      >
+        <div class="lg:col-start-2">
+          <h2 id="features-heading" class="font-medium text-gray-500">
+            {{ currentCourse?.category }}
+          </h2>
+          <p class="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">
+            {{ currentCourse?.title }}
+          </p>
+          <p class="mt-4 text-gray-500">{{ currentCourse?.description }}</p>
+          <p >
+            {{ currentCourse['createdAt'] | date : 'dd-MM-yyyy'}} 
+             <span class="px-3" >
+                By {{ currentCourse.author }} 
+            </span>
+          </p>
+
+          <div class="w-full" *ngIf="currentCourse['chapters'].length !== 0">
+            <div class="" *ngFor="let chapter of currentCourse['chapters']">
+              <span class="text-blue-600">{{ chapter.title }}</span>
+              <br />
+              <p class="text-gray-700" [innerHtml]="chapter.content"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</div>
+</div>
+<div class="flex flex-row justify-center">
+    <a class="bg-cyan-900 text-gray-200 rounded-md px-2 py-1" [routerLink]='["/front/courses"]'>Back</a>
+</div>

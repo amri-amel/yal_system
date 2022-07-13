@@ -16,6 +16,7 @@ import { ChaptersListComponent } from './update-course/chapters-list/chapters-li
 import { UploadRessourceComponent } from './upload-ressource/upload-ressource.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { CourseCardComponent } from './course-card/course-card.component';
+import { CoursesDetailComponent } from './courses-detail/courses-detail.component';
 
 
 
@@ -30,7 +31,8 @@ import { CourseCardComponent } from './course-card/course-card.component';
     AddChapterFormComponent,
     ChaptersListComponent,
     UploadRessourceComponent,
-    CourseCardComponent
+    CourseCardComponent,
+    CoursesDetailComponent
   ],
   imports: [
     CommonModule,

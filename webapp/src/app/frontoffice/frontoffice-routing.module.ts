@@ -14,6 +14,8 @@ import { LandpageComponent } from './layers/landpage/landpage.component';
 import { TrainingsessionPageComponent } from './layers/trainingsession-page/trainingsession-page.component';
 import { AddFormationComponent } from '../shared/formations/admin/add-formation/add-formation.component';
 import { ProfileComponent } from '../shared/user/profile/profile.component';
+import { CoursesDetailComponent } from '../shared/courses/courses-detail/courses-detail.component';
+import { CourseResolver } from '../shared/courses/course.resolver';
 
 const routes: Routes = [
   {
@@ -41,8 +43,13 @@ const routes: Routes = [
         component: CoursesPageComponent,
 
       },
-
-
+      {
+        path: 'course-detail/:id',
+        component:CoursesDetailComponent,
+        resolve:{
+          course:CourseResolver
+        }
+      },
       {
         path: 'training-session',
         component: TrainingsessionPageComponent,
@@ -67,11 +74,6 @@ const routes: Routes = [
         path: 'contact',
         component: ContactPageComponent,
 
-      },
-      {
-        path: ' Front/**',
-        component: NotfoundPageComponent,
-        //  pathMatch: 'full'
       },
       {
         path: "**", redirectTo: "home", pathMatch: "full"
