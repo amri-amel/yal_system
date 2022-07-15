@@ -25,17 +25,12 @@ import { AdminNavigationComponent } from './layers/admin-navigation/admin-naviga
 
 
 
-
 const routes: Routes = [
   {
     path:'',
-    component:AdminLandpageComponent,
+    component:AdminNavigationComponent,
     children:[
-      {
-        path:'',
-        component:AdminNavigationComponent
-
-      },
+     
       {
         path:'courses',
         component: AdminCoursesPageComponent,
@@ -132,6 +127,7 @@ const routes: Routes = [
 
     ]
   }
+  
 ];
 
 @NgModule({
@@ -139,5 +135,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class BackofficeRoutingModule { }
-
 
