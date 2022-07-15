@@ -22,6 +22,7 @@ import { AdminListeFormationComponent } from '../shared/formations/admin/admin-l
 import { AddFormationComponent } from '../shared/formations/admin/add-formation/add-formation.component';
 import { FormationResolver } from '../shared/formations/formation.resolver';
 import { AdminNavigationComponent } from './layers/admin-navigation/admin-navigation.component';
+import { DashComponent } from './layers/dash/dash.component';
 
 
 
@@ -30,28 +31,30 @@ const routes: Routes = [
     path:'',
     component:AdminNavigationComponent,
     children:[
-     
       {
-        path:'courses',
-        component: AdminCoursesPageComponent,
-        children:[
-          {
-            path:'',
-            component:CoursesListComponent
-          },
-          {
-            path:'add',
-            component: AddCourseComponent
-          },
-          {
-            path:'update/:id',
-            component: UpdateCourseComponent,
-            resolve:{
-              course:CourseResolver
+        path:'',
+        component: DashComponent},
+        {
+          path:'courses',
+          component: AdminCoursesPageComponent,
+          children:[
+            {
+              path:'',
+              component:CoursesListComponent
+            },
+            {
+              path:'add',
+              component: AddCourseComponent
+            },
+            {
+              path:'update/:id',
+              component: UpdateCourseComponent,
+             resolve:{
+                course:CourseResolver
+             }
             }
-          }
-        ]
-      },
+          ]
+        },
       //training
       {
         path:'training',

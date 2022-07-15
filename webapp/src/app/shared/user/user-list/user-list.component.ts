@@ -25,7 +25,7 @@ export class UserListComponent implements OnInit {
 
   dataSource: UserListDataSource;
   datasourceLength:number=1;
-  displayedColumns = ['name','email','role','avatar','actions'];
+  displayedColumns = ['name','email','role','avatar'];
 
   constructor(
     private userService:UserService, 
